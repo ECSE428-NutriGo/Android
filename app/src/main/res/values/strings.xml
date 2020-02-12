@@ -3,4 +3,11 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="carbs">CARBS:</string>
+    <string name="add_food_item">ADD FOOD ITEM</string>
+    <string name="confirm">CONFIRM</string>
+    <string name="manually_enter">MANUALLY ENTER</string>
+    <string name="fat">FAT:</string>
+    <string name="protien">PROTIEN:</string>
+    <string name="calories">CALORIES:</string>
 </resources>
