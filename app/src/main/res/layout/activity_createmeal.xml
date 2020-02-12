@@ -164,4 +164,72 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_proteinStatic" />
+
+    <TextView
+        android:id="@+id/textView_caloriesDyn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="213dp"
+        android:layout_marginRight="213dp"
+        android:layout_marginBottom="108dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_caloriesStatic"
+        app:layout_constraintTop_toBottomOf="@+id/textView_itemlist" />
+
+    <TextView
+        android:id="@+id/textView_carbsDyn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="81dp"
+        android:layout_marginEnd="211dp"
+        android:layout_marginRight="211dp"
+        android:layout_marginBottom="80dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_carbsStatic"
+        app:layout_constraintTop_toBottomOf="@+id/textView_itemlist" />
+
+    <TextView
+        android:id="@+id/textView_proteinDyn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="219dp"
+        android:layout_marginRight="219dp"
+        android:layout_marginBottom="57dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_proteinStatic"
+        app:layout_constraintTop_toBottomOf="@+id/textView_itemlist" />
+
+    <TextView
+        android:id="@+id/textView_fatDyn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="131dp"
+        android:layout_marginEnd="213dp"
+        android:layout_marginRight="213dp"
+        android:layout_marginBottom="30dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_fatStatic"
+        app:layout_constraintTop_toBottomOf="@+id/textView_itemlist" />
 </androidx.constraintlayout.widget.ConstraintLayout>
