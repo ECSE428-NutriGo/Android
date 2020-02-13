@@ -6,9 +6,11 @@
     <string name="carbs">CARBS:</string>
     <string name="add_food_item">ADD FOOD ITEM</string>
     <string name="confirm">CONFIRM</string>
-    <string name="manually_enter">MANUALLY ENTER</string>
+    <string name="manually_enter">MANUALLY ENTER MACROS</string>
     <string name="fat">FAT:</string>
-    <string name="protien">PROTIEN:</string>
+    <string name="protein">PROTEIN:</string>
     <string name="calories">CALORIES:</string>
     <string name="select">SELECT</string>
+    <string name="confirm_macros">CONFIRM MACROS</string>
+    <string name="meal_name">MEAL NAME</string>
 </resources>

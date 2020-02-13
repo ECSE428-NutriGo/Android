@@ -60,10 +60,10 @@
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.065" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_addfooditem"
         android:layout_width="134dp"
         android:layout_height="52dp"
         android:layout_marginTop="180dp"
@@ -80,7 +80,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/button_manuallyenter"
         android:layout_width="135dp"
         android:layout_height="55dp"
         android:layout_marginTop="16dp"
@@ -90,7 +90,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/button_addfooditem" />
 
     <TextView
         android:id="@+id/textView_caloriesStatic"
@@ -107,6 +107,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView_carbsStatic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_itemlist" />
 
@@ -125,6 +126,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView_proteinStatic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_caloriesStatic" />
 
@@ -138,7 +140,7 @@
         android:layout_marginEnd="293dp"
         android:layout_marginRight="293dp"
         android:layout_marginBottom="3dp"
-        android:text="@string/protien"
+        android:text="@string/protein"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView_fatStatic"
@@ -177,7 +179,7 @@
         android:layout_marginBottom="108dp"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/button_addfooditem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView_caloriesStatic"
         app:layout_constraintTop_toBottomOf="@+id/textView_itemlist" />
@@ -194,7 +196,7 @@
         android:layout_marginBottom="80dp"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/button_addfooditem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView_carbsStatic"
         app:layout_constraintTop_toBottomOf="@+id/textView_itemlist" />
@@ -211,7 +213,7 @@
         android:layout_marginBottom="57dp"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/button_addfooditem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView_proteinStatic"
         app:layout_constraintTop_toBottomOf="@+id/textView_itemlist" />
@@ -228,8 +230,24 @@
         android:layout_marginBottom="30dp"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/button_addfooditem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView_fatStatic"
         app:layout_constraintTop_toBottomOf="@+id/textView_itemlist" />
+
+    <EditText
+        android:id="@+id/editText_mealname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="450dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/meal_name"
+        android:textColor="#EECCD1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
