@@ -10,4 +10,5 @@
     <string name="fat">FAT:</string>
     <string name="protien">PROTIEN:</string>
     <string name="calories">CALORIES:</string>
+    <string name="select">SELECT</string>
 </resources>
