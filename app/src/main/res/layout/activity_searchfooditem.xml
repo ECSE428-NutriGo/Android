@@ -9,8 +9,8 @@
     android:orientation="vertical">
 
     <ListView
-        android:layout_width="326dp"
-        android:layout_height="497dp"
+        android:layout_width="317dp"
+        android:layout_height="459dp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
         android:layout_marginTop="400dp"
@@ -19,25 +19,39 @@
         android:layout_marginBottom="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.751" />
+        app:layout_constraintVertical_bias="0.847" />
 
     <Button
         android:id="@+id/button_select"
-        android:layout_width="115dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="650dp"
+        android:layout_width="147dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="600dp"
         android:layout_marginBottom="35dp"
         android:background="#EAA3AB"
-        android:text="@string/select"
+        android:text="@string/add_food_item"
         android:textColor="#F9DBDC"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.042" />
+
+    <Button
+        android:id="@+id/button_creatnefooditem"
+        android:layout_width="181dp"
+        android:layout_height="36dp"
+        android:background="#EAA3AB"
+        android:text="CREATE NEW FOOD ITEM"
+        android:textColor="#F9DBDC"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.949" />
 
     <Button
         android:id="@+id/button_cancel"
