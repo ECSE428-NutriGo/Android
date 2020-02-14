@@ -10,7 +10,7 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/nameTxtbx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="84dp"
@@ -33,14 +33,14 @@
             android:layout_marginRight="10dp"
             android:text="Ingredient Name"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/editText2"
+            app:layout_constraintEnd_toStartOf="@+id/nameTxtbx"
             app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.136" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/savebtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="160dp"
@@ -53,7 +53,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/cancelBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -61,12 +61,12 @@
             android:layout_marginBottom="64dp"
             android:text="@android:string/cancel"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button3"
+            app:layout_constraintEnd_toStartOf="@+id/savebtn"
             app:layout_constraintHorizontal_bias="0.121"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/FatTxtbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -75,10 +75,10 @@
             android:ems="10"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText6" />
+            app:layout_constraintTop_toBottomOf="@+id/calorieTxtbox" />
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/carbTxtbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -87,10 +87,10 @@
             android:ems="10"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText3" />
+            app:layout_constraintTop_toBottomOf="@+id/FatTxtbox" />
 
         <EditText
-            android:id="@+id/editText5"
+            android:id="@+id/proteinTxtbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -99,10 +99,10 @@
             android:ems="10"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText4" />
+            app:layout_constraintTop_toBottomOf="@+id/carbTxtbox" />
 
         <EditText
-            android:id="@+id/editText6"
+            android:id="@+id/calorieTxtbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -111,7 +111,7 @@
             android:ems="10"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText2" />
+            app:layout_constraintTop_toBottomOf="@+id/nameTxtbx" />
 
         <TextView
             android:id="@+id/textView4"
@@ -121,40 +121,40 @@
             android:layout_marginEnd="52dp"
             android:layout_marginRight="52dp"
             android:text="Calories"
-            app:layout_constraintEnd_toStartOf="@+id/editText6"
+            app:layout_constraintEnd_toStartOf="@+id/calorieTxtbox"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="68dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
-            android:text="Fat Content"
-            app:layout_constraintEnd_toStartOf="@+id/editText3"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="52dp"
+            android:layout_marginRight="52dp"
+            android:text="Fat  in g"
+            app:layout_constraintEnd_toStartOf="@+id/FatTxtbox"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="68dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:text="Carb Content"
-            app:layout_constraintEnd_toStartOf="@+id/editText4"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginRight="48dp"
+            android:text="Carb in g"
+            app:layout_constraintEnd_toStartOf="@+id/carbTxtbox"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="68dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginRight="24dp"
-            android:text="Protein Content"
-            app:layout_constraintEnd_toStartOf="@+id/editText5"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:text="Protein in g"
+            app:layout_constraintEnd_toStartOf="@+id/proteinTxtbox"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <TextView
