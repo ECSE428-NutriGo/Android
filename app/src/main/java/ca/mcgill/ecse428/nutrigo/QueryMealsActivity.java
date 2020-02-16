@@ -32,7 +32,7 @@ public class QueryMealsActivity extends AppCompatActivity {
 
         listElements = new ArrayList<>();
 
-        asyncHttpClient.addHeader("Authorization", "Token adf5ca6fa7ad08d8cb1fdfd471a92a92d6442997");
+        asyncHttpClient.addHeader("Authorization", "Token "+LoginActivity.getUserToken());
         asyncHttpClient.get("https://nutrigo-staging.herokuapp.com/nutri/meal/", new RequestParams(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {

@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                 } catch(JSONException e) {
 
                 }
-                Intent ide = new Intent(LoginActivity.this, MainActivity.class);
+                Intent ide = new Intent(LoginActivity.this, QueryMealsActivity.class);
                 startActivity(ide);
             }
 
