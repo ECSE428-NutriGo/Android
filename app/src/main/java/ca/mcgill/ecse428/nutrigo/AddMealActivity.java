@@ -2,6 +2,8 @@ package ca.mcgill.ecse428.nutrigo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -10,6 +12,7 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -24,6 +27,7 @@ public class AddMealActivity extends AppCompatActivity {
     public static String carbs = "0";
     public static String protein = "0";
     public static String fat = "0";
+    public static String name = "MEAL NAME";
     public static ArrayList<String> currentFoodItems = new ArrayList<>();
 
     Intent intent;
@@ -52,6 +56,25 @@ public class AddMealActivity extends AppCompatActivity {
         intent = new Intent(this, AddMealActivity.class);
 
         mealNameBox = findViewById(R.id.editText_mealname);
+
+        mealNameBox.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                name = mealNameBox.getText().toString();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+        mealNameBox.setText(name);
+
         TextView foodList = findViewById(R.id.textView_itemlist);
         String foodItems = "";
 
@@ -98,16 +121,21 @@ public class AddMealActivity extends AppCompatActivity {
         asyncHttpClient.post("https://nutrigo-staging.herokuapp.com/nutri/meal/", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                name = "MEAL NAME";
+                carbs = "0";
+                protein = "0";
+                fat = "0";
+
                 startActivity(intent);
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-//                try {
-//                    //error += errorResponse.get("message").toString();
-//                } catch (JSONException e) {
-//                    //error += e.getMessage();
-//                }
+                try {
+                    error += errorResponse.get("message").toString();
+                } catch (JSONException e) {
+                    error += e.getMessage();
+                }
                 refreshErrorMessage();
             }
 

@@ -83,7 +83,6 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="SEARCH"
         android:textColor="#F9DBDC"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
