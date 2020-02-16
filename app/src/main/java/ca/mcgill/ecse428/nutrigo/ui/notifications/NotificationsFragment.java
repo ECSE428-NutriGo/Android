@@ -15,6 +15,8 @@ import org.json.JSONObject;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import ca.mcgill.ecse428.nutrigo.LoginActivity;
 import ca.mcgill.ecse428.nutrigo.R;
 import cz.msebera.android.httpclient.Header;
 
@@ -30,7 +32,7 @@ public class NotificationsFragment extends Fragment {
         final EditText carbs_field = root.findViewById(R.id.carbs_field);
         final EditText proteins_field = root.findViewById(R.id.proteins_field);
 
-        asyncHttpClient.addHeader("Authorization", "Token adf5ca6fa7ad08d8cb1fdfd471a92a92d6442997");
+        asyncHttpClient.addHeader("Authorization", "Token" + LoginActivity.getUserToken());
         asyncHttpClient.get("https://nutrigo-staging.herokuapp.com/rest-auth/user/", new RequestParams(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
