@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -41,22 +42,20 @@ public class SearchFoodItemActivity extends AppCompatActivity {
         asyncHttpClient.get("https://nutrigo-staging.herokuapp.com/nutri/fooditem/", new RequestParams(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Object foodItems = null;
                 try {
-                    foodItems = response.get("meals");
+                    JSONArray foodItems = (JSONArray)response.get("fooditems");
+                    for(int i = 0; i < ((JSONArray)foodItems).length(); i++) {
+
+                        JSONObject item = (JSONObject)((JSONArray)foodItems).get(i);
+                        String[] macros = {item.get("carb").toString(),item.get("protein").toString(),item.get("fat").toString()};
+
+                        listElements.add(new ListFoodItem(item.get("name").toString(), macros));
+                    }
+
                 } catch(JSONException e) {
 
                 }
-                for(int i = 0; i < ((JSONArray)foodItems).length(); i++) {
-                    try {
-                        JSONObject item = (JSONObject)((JSONArray)foodItems).get(i);
-                        String[] macros = {item.get("carbs").toString(),item.get("protein").toString(),item.get("fat").toString()};
 
-                        listElements.add(new ListFoodItem(item.get("name").toString(), macros));
-                    } catch(JSONException e) {
-
-                    }
-                }
                 populateList("");
             }
             @Override
