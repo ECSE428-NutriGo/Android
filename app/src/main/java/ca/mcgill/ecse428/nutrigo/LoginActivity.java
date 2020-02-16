@@ -20,6 +20,15 @@ import cz.msebera.android.httpclient.Header;
 
 public class LoginActivity extends AppCompatActivity {
     private final AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
+
+    public static String getUserToken() {
+        return userToken;
+    }
+
+    public static void setUserToken(String userToken) {
+        LoginActivity.userToken = userToken;
+    }
+
     private static String userToken;
 
     @Override
