@@ -102,7 +102,7 @@ public class SearchFoodItemActivity extends AppCompatActivity {
         final ListView lv = (ListView) findViewById(R.id.listThing);
 
         if(search.equals("")) {
-            lv.setAdapter(new MyCustomBaseAdapter(this, listElements));
+            lv.setAdapter(new CustomBaseAdapterFoodItem(this, listElements));
         }
         else{
             ArrayList<ListItem> searchedElements = new ArrayList();
@@ -111,7 +111,7 @@ public class SearchFoodItemActivity extends AppCompatActivity {
                     searchedElements.add(li);
                 }
             }
-            lv.setAdapter(new MyCustomBaseAdapter(this, searchedElements));
+            lv.setAdapter(new CustomBaseAdapterFoodItem(this, searchedElements));
         }
     }
 }
