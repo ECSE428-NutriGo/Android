@@ -47,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
                     userToken = response.get("key").toString();
-                    Log.v("hey", userToken);
                 } catch(JSONException e) {
 
                 }
