@@ -29,7 +29,6 @@
         android:layout_width="194dp"
         android:layout_height="84dp"
         android:background="#A85F6A"
-        android:onClick="saveTargets"
         android:text="CREATE MEAL"
         android:textColor="#FFFFFF"
         android:textSize="24sp"

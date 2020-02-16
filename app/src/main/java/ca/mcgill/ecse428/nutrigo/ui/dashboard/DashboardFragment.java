@@ -1,5 +1,6 @@
 package ca.mcgill.ecse428.nutrigo.ui.dashboard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Button;
+
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -22,18 +25,31 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import ca.mcgill.ecse428.nutrigo.AddMealActivity;
 import ca.mcgill.ecse428.nutrigo.LoginActivity;
+import ca.mcgill.ecse428.nutrigo.MainActivity;
 import ca.mcgill.ecse428.nutrigo.R;
 import cz.msebera.android.httpclient.Header;
 
-public class DashboardFragment extends Fragment {
+public class DashboardFragment extends Fragment implements View.OnClickListener {
 
     private ArrayList<MealItem> listElements;
     private final AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
 
+    @Override
+    public void onClick(View v) {
+        Intent ide = new Intent(getActivity(), AddMealActivity.class);
+        startActivity(ide);
+    }
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.activity_meals, container, false);
+
+        View v = inflater.inflate(R.layout.activity_meals, container, false);
+
+        Button b = (Button) v.findViewById(R.id.createNewMeal_button);
+        b.setOnClickListener(this);
 
         listElements = new ArrayList<>();
 
@@ -90,7 +106,7 @@ public class DashboardFragment extends Fragment {
 
             }
         });
-        return root;
+        return v;
     }
 
     private void populateList(String search) {
@@ -108,6 +124,11 @@ public class DashboardFragment extends Fragment {
             }
             lv.setAdapter(new MyCustomBaseAdapter(this.getContext(), searchedElements));
         }
+    }
+
+    public void createMeal() {
+        Intent ide = new Intent(getActivity(), AddMealActivity.class);
+        startActivity(ide);
     }
 }
 
