@@ -58,27 +58,27 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                 Object meals = null;
                 try {
                     meals = response.get("meals");
+                    for(int i = 0; i < ((JSONArray)meals).length(); i++) {
+                        try{
+                            JSONObject meal = (JSONObject)((JSONArray)meals).get(i);
+                            JSONArray foods = (JSONArray)meal.get("fooditems");
+                            String summary = "";
+                            for(int j = 0; j < foods.length(); j++) {
+                                if(j != foods.length() - 1){
+                                    summary += ((JSONObject)(foods.get(j))).get("name").toString()+", ";
+                                }
+                                else {
+                                    summary += ((JSONObject)(foods.get(j))).get("name").toString();
+                                }
+                            }
+
+                            listElements.add(new MealItem(meal.get("name").toString(), summary));
+                        } catch(JSONException e) {
+
+                        }
+                    }
                 } catch(JSONException e) {
 
-                }
-                for(int i = 0; i < ((JSONArray)meals).length(); i++) {
-                    try{
-                        JSONObject meal = (JSONObject)((JSONArray)meals).get(i);
-                        JSONArray foods = (JSONArray)meal.get("fooditems");
-                        String summary = "";
-                        for(int j = 0; j < foods.length(); j++) {
-                            if(j != foods.length() - 1){
-                                summary += ((JSONObject)(foods.get(j))).get("name").toString()+", ";
-                            }
-                            else {
-                                summary += ((JSONObject)(foods.get(j))).get("name").toString();
-                            }
-                        }
-
-                        listElements.add(new MealItem(meal.get("name").toString(), summary));
-                    } catch(JSONException e) {
-
-                    }
                 }
                 populateList("");
             }
