@@ -46,9 +46,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.activity_meals, container, false);
 
-        View v = inflater.inflate(R.layout.activity_meals, container, false);
-
-        Button b = (Button) v.findViewById(R.id.createNewMeal_button);
+        Button b = (Button) root.findViewById(R.id.createNewMeal_button);
         b.setOnClickListener(this);
 
         listElements = new ArrayList<>();
@@ -106,7 +104,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
 
             }
         });
-        return v;
+        return root;
     }
 
     private void populateList(String search) {

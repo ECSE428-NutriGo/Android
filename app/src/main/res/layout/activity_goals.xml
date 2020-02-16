@@ -192,11 +192,10 @@
         app:layout_constraintVertical_bias="0.36" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/saveTarget"
         android:layout_width="159dp"
         android:layout_height="86dp"
         android:background="#BD694D"
-        android:onClick="saveTargets"
         android:text="SAVE"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
