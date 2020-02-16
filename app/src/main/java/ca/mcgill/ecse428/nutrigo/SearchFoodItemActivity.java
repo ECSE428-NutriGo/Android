@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -22,7 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import cz.msebera.android.httpclient.Header;
 
 public class SearchFoodItemActivity extends AppCompatActivity {
-    private ArrayList<ListItem> listElements;
+    private ArrayList<ListFoodItem> listElements;
     private final AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
 
     Intent intent;
@@ -41,22 +42,20 @@ public class SearchFoodItemActivity extends AppCompatActivity {
         asyncHttpClient.get("https://nutrigo-staging.herokuapp.com/nutri/fooditem/", new RequestParams(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Object foodItems = null;
                 try {
-                    foodItems = response.get("meals");
+                    JSONArray foodItems = (JSONArray)response.get("fooditems");
+                    for(int i = 0; i < ((JSONArray)foodItems).length(); i++) {
+
+                        JSONObject item = (JSONObject)((JSONArray)foodItems).get(i);
+                        String[] macros = {item.get("carb").toString(),item.get("protein").toString(),item.get("fat").toString()};
+
+                        listElements.add(new ListFoodItem(item.get("name").toString(), macros));
+                    }
+
                 } catch(JSONException e) {
 
                 }
-                for(int i = 0; i < ((JSONArray)foodItems).length(); i++) {
-                    try {
-                        JSONObject item = (JSONObject)((JSONArray)foodItems).get(i);
-                        String[] macros = {item.get("carbs").toString(),item.get("protein").toString(),item.get("fat").toString()};
 
-                        listElements.add(new ListItem(item.get("name").toString(), macros));
-                    } catch(JSONException e) {
-
-                    }
-                }
                 populateList("");
             }
             @Override
@@ -105,8 +104,8 @@ public class SearchFoodItemActivity extends AppCompatActivity {
             lv.setAdapter(new CustomBaseAdapterFoodItem(this, listElements));
         }
         else{
-            ArrayList<ListItem> searchedElements = new ArrayList();
-            for(ListItem li : listElements) {
+            ArrayList<ListFoodItem> searchedElements = new ArrayList();
+            for(ListFoodItem li : listElements) {
                 if(li.getItem().matches("^"+search+".*")) {
                     searchedElements.add(li);
                 }
@@ -117,13 +116,13 @@ public class SearchFoodItemActivity extends AppCompatActivity {
 }
 
 
-class ListItem {
+class ListFoodItem {
     private String item;
     private String carbs;
     private String protein;
     private String fat;
 
-    public ListItem(String name, String[] macros) {
+    public ListFoodItem(String name, String[] macros) {
         this.item = name;
         this.carbs = macros[0];
         this.protein = macros[1];

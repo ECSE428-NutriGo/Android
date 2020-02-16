@@ -10,25 +10,19 @@
 
     <ListView
         android:id="@+id/listThing"
-        android:layout_width="321dp"
-        android:layout_height="264dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginBottom="200dp"
+        android:layout_width="323dp"
+        android:layout_height="207dp"
+        android:background="#B25867"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.41" />
 
     <Button
         android:id="@+id/button_select"
         android:layout_width="147dp"
         android:layout_height="42dp"
-        android:layout_marginTop="400dp"
         android:layout_marginBottom="35dp"
         android:background="#EAA3AB"
         android:onClick="addFoodItem"
@@ -39,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.393" />
+        app:layout_constraintVertical_bias="0.775" />
 
     <Button
         android:id="@+id/button_creatnefooditem"
@@ -60,12 +54,6 @@
         android:id="@+id/button_cancel"
         android:layout_width="123dp"
         android:layout_height="40dp"
-        android:layout_marginStart="75dp"
-        android:layout_marginLeft="75dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="289dp"
-        android:layout_marginRight="289dp"
-        android:layout_marginBottom="600dp"
         android:background="#B95065"
         android:onClick="backToAddMeal"
         android:text="@android:string/cancel"
@@ -73,9 +61,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.394"
+        app:layout_constraintHorizontal_bias="0.156"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.089" />
 
     <EditText
         android:id="@+id/editText_search"
@@ -87,8 +76,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.189" />
+        app:layout_constraintVertical_bias="0.19" />
 </androidx.constraintlayout.widget.ConstraintLayout>

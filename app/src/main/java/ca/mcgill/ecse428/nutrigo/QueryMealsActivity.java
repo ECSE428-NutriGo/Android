@@ -1,25 +1,23 @@
 package ca.mcgill.ecse428.nutrigo;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.text.TextWatcher;
-import android.util.Log;
-import android.widget.EditText;
-import android.widget.ListView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.widget.EditText;
+import android.widget.ListView;
 
+import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import cz.msebera.android.httpclient.Header;
-import com.loopj.android.http.AsyncHttpClient;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import androidx.appcompat.app.AppCompatActivity;
+import cz.msebera.android.httpclient.Header;
 
 public class QueryMealsActivity extends AppCompatActivity {
     private ArrayList<MealItem> listElements;
