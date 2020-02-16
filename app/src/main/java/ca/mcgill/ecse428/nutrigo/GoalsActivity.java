@@ -40,7 +40,7 @@ public class GoalsActivity extends AppCompatActivity {
         final EditText carbs_field = (EditText) findViewById(R.id.carbs_field);
         final EditText proteins_field = (EditText) findViewById(R.id.proteins_field);
 
-        asyncHttpClient.addHeader("Authorization", "Token adf5ca6fa7ad08d8cb1fdfd471a92a92d6442997");
+        asyncHttpClient.addHeader("Authorization", "Token "+LoginActivity.getUserToken());
         asyncHttpClient.get("https://nutrigo-staging.herokuapp.com/rest-auth/user/", new RequestParams(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
