@@ -10,11 +10,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class CustomBaseAdapterFoodItem extends BaseAdapter {
-    private static ArrayList<ListItem> searchArrayList;
+    private static ArrayList<ListFoodItem> searchArrayList;
 
     private LayoutInflater mInflater;
 
-    public CustomBaseAdapterFoodItem(Context context, ArrayList<ListItem> results) {
+    public CustomBaseAdapterFoodItem(Context context, ArrayList<ListFoodItem> results) {
         searchArrayList = results;
         mInflater = LayoutInflater.from(context);
     }
