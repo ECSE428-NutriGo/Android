@@ -113,6 +113,7 @@ public class AddMealEntryActivity extends AppCompatActivity {
         });
 
         //NOW WE RETURN TO THE Query meal page!!!!!
+        this.finish();
 
 
 
