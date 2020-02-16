@@ -19,28 +19,49 @@
             <intent-filter>
                 <action android:name="android.support.PARENT_ACTIVITY" />
                 <category android:name="android.intent.category.LoginActivity" />
+                <category android:name="android.intent.category.AddMealActivity" />
             </intent-filter>
         </activity>
 
         <activity
             android:name=".AddMealActivity"
             android:parentActivityName=".MainActivity">
-            <intent-filter>
-                <action android:name="android.support.PARENT_ACTIVITY" />
-                <category android:name="android.intent.category.MainActivity" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".LoginActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".SearchFoodItemActivity"
+            android:parentActivityName=".AddMealActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.support.PARENT_ACTIVITY" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ManuallyAddMacrosActivity"
+            android:parentActivityName=".AddMealActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.support.PARENT_ACTIVITY" />
+            </intent-filter>
 
 
         </activity>
+
+
+        <!--        <activity-->
+<!--            android:name=".LoginActivity"-->
+<!--            android:label="@string/app_name">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
 
         <activity
             android:name=".SignupActivity"
