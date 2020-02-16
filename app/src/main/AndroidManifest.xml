@@ -29,12 +29,7 @@
 
         <activity
             android:name=".SearchFoodItemActivity"
-            android:parentActivityName=".AddMealActivity"
             android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.support.PARENT_ACTIVITY" />
-                <category android:name="android.intent.category.MainActivity" />
-            </intent-filter>
         </activity>
 
         <activity
@@ -44,11 +39,7 @@
 
         <activity
             android:name=".ManuallyAddMacrosActivity"
-            android:parentActivityName=".AddMealActivity"
             android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.support.PARENT_ACTIVITY" />
-            </intent-filter>
         </activity>
 
         <activity
@@ -58,12 +49,7 @@
 
         <activity
             android:name=".AddMealEntryActivity"
-            android:parentActivityName=".MainActivity">
-
-            <intent-filter>
-                <action android:name="android.support.PARENT_ACTIVITY" />
-                <category android:name="android.intent.category.MainActivity" />
-            </intent-filter>
+            android:label="@string/app_name">
         </activity>
 
     </application>
