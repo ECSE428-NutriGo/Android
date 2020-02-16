@@ -1,7 +1,5 @@
 package ca.mcgill.ecse428.nutrigo;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,12 +7,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-public class MyCustomBaseAdapter extends BaseAdapter {
-    private static ArrayList<MealItem> searchArrayList;
+import java.util.ArrayList;
+
+public class CustomBaseAdapterFoodItem extends BaseAdapter {
+    private static ArrayList<ListItem> searchArrayList;
 
     private LayoutInflater mInflater;
 
-    public MyCustomBaseAdapter(Context context, ArrayList<MealItem> results) {
+    public CustomBaseAdapterFoodItem(Context context, ArrayList<ListItem> results) {
         searchArrayList = results;
         mInflater = LayoutInflater.from(context);
     }
@@ -44,8 +44,10 @@ public class MyCustomBaseAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.txtName.setText(searchArrayList.get(position).getName());
-        holder.txtCityState.setText(searchArrayList.get(position).getItems());
+        holder.txtName.setText(searchArrayList.get(position).getItem());
+        String[] macros= searchArrayList.get(position).getMacros();
+        String display = "Carbs: "+ macros[0] + " Protein: " + macros[1] + " Fat: " + macros[2];
+        holder.txtCityState.setText(display);
 
         return convertView;
     }

@@ -22,7 +22,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class QueryMealsActivity extends AppCompatActivity {
-    private ArrayList<ListItem> listElements;
+    private ArrayList<MealItem> listElements;
     private final AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
 
     @Override
@@ -56,7 +56,7 @@ public class QueryMealsActivity extends AppCompatActivity {
                             }
                         }
 
-                        listElements.add(new ListItem(meal.get("name").toString(), summary));
+                        listElements.add(new MealItem(meal.get("name").toString(), summary));
                     } catch(JSONException e) {
 
                     }
@@ -94,8 +94,8 @@ public class QueryMealsActivity extends AppCompatActivity {
             lv.setAdapter(new MyCustomBaseAdapter(this, listElements));
         }
         else{
-            ArrayList<ListItem> searchedElements = new ArrayList();
-            for(ListItem li : listElements) {
+            ArrayList<MealItem> searchedElements = new ArrayList();
+            for(MealItem li : listElements) {
                 if(li.getName().matches("^"+search+".*")) {
                     searchedElements.add(li);
                 }
@@ -109,11 +109,11 @@ public class QueryMealsActivity extends AppCompatActivity {
     }
 }
 
-class ListItem {
+class MealItem {
     private String name;
     private String items;
 
-    public ListItem(String name, String items) {
+    public MealItem(String name, String items) {
         this.name = name;
         this.items = items;
     }
