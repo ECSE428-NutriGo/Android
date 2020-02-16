@@ -49,6 +49,8 @@
             <intent-filter>
                 <action android:name="android.support.PARENT_ACTIVITY" />
             </intent-filter>
+
+
         </activity>
 
 
@@ -68,6 +70,16 @@
             <intent-filter>
                 <action android:name="android.support.PARENT_ACTIVITY" />
                 <category android:name="android.intent.category.LoginActivity" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".AddMealEntryActivity"
+            android:parentActivityName=".MainActivity">
+
+            <intent-filter>
+                <action android:name="android.support.PARENT_ACTIVITY" />
+                <category android:name="android.intent.category.MainActivity" />
             </intent-filter>
         </activity>
 

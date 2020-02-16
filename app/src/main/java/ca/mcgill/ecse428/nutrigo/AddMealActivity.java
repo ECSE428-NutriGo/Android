@@ -1,5 +1,6 @@
 package ca.mcgill.ecse428.nutrigo;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -23,6 +24,8 @@ import cz.msebera.android.httpclient.Header;
 
 public class AddMealActivity extends AppCompatActivity {
     private final AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
+  
+    private String username;
 
     public static String carbs = "0";
     public static String protein = "0";
@@ -150,8 +153,5 @@ public class AddMealActivity extends AppCompatActivity {
         intent = new Intent(this, ManuallyAddMacrosActivity.class);
         startActivity(intent);
     }
-
-
-
 
 }
