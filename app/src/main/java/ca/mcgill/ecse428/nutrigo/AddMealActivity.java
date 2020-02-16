@@ -30,7 +30,7 @@ public class AddMealActivity extends AppCompatActivity {
     public static String carbs = "0";
     public static String protein = "0";
     public static String fat = "0";
-    public static String name = "MEAL NAME";
+    public static String name = "";
     public static ArrayList<String> currentFoodItems = new ArrayList<>();
 
     Intent intent;
@@ -124,7 +124,7 @@ public class AddMealActivity extends AppCompatActivity {
         asyncHttpClient.post("https://nutrigo-staging.herokuapp.com/nutri/meal/", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                name = "MEAL NAME";
+                name = "";
                 carbs = "0";
                 protein = "0";
                 fat = "0";
