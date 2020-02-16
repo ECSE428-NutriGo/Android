@@ -2,6 +2,7 @@ package ca.mcgill.ecse428.nutrigo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -12,12 +13,14 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 
 public class LoginActivity extends AppCompatActivity {
     private final AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
+    private static String userToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +39,18 @@ public class LoginActivity extends AppCompatActivity {
 
         RequestParams rp = new RequestParams();
         rp.put("username", username_login_field.getText());
+        rp.put("email", username_login_field.getText());
         rp.put("password", password_login_field.getText());
 
-        asyncHttpClient.put("https://nutrigo-staging.herokuapp.com/rest-auth/user/", rp, new JsonHttpResponseHandler() {
+        asyncHttpClient.post("https://nutrigo-staging.herokuapp.com/rest-auth/login/", rp, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    userToken = response.get("key").toString();
+                    Log.v("hey", userToken);
+                } catch(JSONException e) {
+
+                }
                 Intent ide = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(ide);
             }
