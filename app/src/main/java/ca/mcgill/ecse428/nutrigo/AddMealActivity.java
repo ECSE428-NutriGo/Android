@@ -1,6 +1,5 @@
 package ca.mcgill.ecse428.nutrigo;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -153,5 +152,4 @@ public class AddMealActivity extends AppCompatActivity {
         intent = new Intent(this, ManuallyAddMacrosActivity.class);
         startActivity(intent);
     }
-
 }
