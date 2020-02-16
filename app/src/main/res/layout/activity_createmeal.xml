@@ -5,38 +5,23 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F48093">
-
-    <Button
-        android:id="@+id/button_cancel"
-        android:layout_width="140dp"
-        android:layout_height="40dp"
-        android:background="#B95065"
-        android:text="@android:string/cancel"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.18"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.104" />
+    android:background="#F38193">
 
     <Button
         android:id="@+id/Button_confirm"
         android:layout_width="139dp"
         android:layout_height="42dp"
-        android:background="#B45261"
+        android:background="#B25867"
         android:onClick="addMeal"
         android:text="@string/confirm"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.812"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.104" />
+        app:layout_constraintVertical_bias="0.097" />
 
     <TextView
         android:id="@+id/textView_itemlist"
@@ -78,10 +63,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.778" />
+        app:layout_constraintVertical_bias="0.813" />
 
     <TextView
         android:id="@+id/textView_carbsStatic"
@@ -168,8 +152,8 @@
         android:id="@+id/editText_mealname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Meal name"
         android:ems="10"
+        android:hint="Meal name"
         android:inputType="textPersonName"
         android:text="@string/meal_name"
         android:textColor="#FFFFFF"

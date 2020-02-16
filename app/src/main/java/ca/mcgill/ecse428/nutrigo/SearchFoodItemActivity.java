@@ -82,11 +82,6 @@ public class SearchFoodItemActivity extends AppCompatActivity {
         });
     }
 
-
-    public void backToAddMeal(View view){
-        startActivity(intent);
-    }
-
     public void addFoodItem(View view){
 
     }
