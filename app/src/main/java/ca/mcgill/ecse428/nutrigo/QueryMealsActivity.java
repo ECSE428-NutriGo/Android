@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
-import android.widget.ListView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -59,7 +58,7 @@ public class QueryMealsActivity extends AppCompatActivity {
 
                     }
                 }
-                populateList("");
+                //populateList("");
             }
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {}
@@ -75,7 +74,7 @@ public class QueryMealsActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                populateList(search.getText().toString());
+                //populateList(search.getText().toString());
             }
 
             @Override
@@ -85,26 +84,22 @@ public class QueryMealsActivity extends AppCompatActivity {
         });
     }
 
-    private void populateList(String search) {
-        final ListView lv = (ListView) findViewById(R.id.mealList);
-
-        if(search.equals("")) {
-            lv.setAdapter(new MyCustomBaseAdapter(this, listElements));
-        }
-        else{
-            ArrayList<ListItem> searchedElements = new ArrayList();
-            for(ListItem li : listElements) {
-                if(li.getName().matches("^"+search+".*")) {
-                    searchedElements.add(li);
-                }
-            }
-            lv.setAdapter(new MyCustomBaseAdapter(this, searchedElements));
-        }
-
-
-
-
-    }
+//    private void populateList(String search) {
+//        final ListView lv = (ListView) findViewById(R.id.mealList);
+//
+//        if(search.equals("")) {
+//            lv.setAdapter(new MyCustomBaseAdapter(this, listElements));
+//        }
+//        else{
+//            ArrayList<ListItem> searchedElements = new ArrayList();
+//            for(ListItem li : listElements) {
+//                if(li.getName().matches("^"+search+".*")) {
+//                    searchedElements.add(li);
+//                }
+//            }
+//            lv.setAdapter(new MyCustomBaseAdapter(this, searchedElements));
+//        }
+//    }
 }
 
 class ListItem {
