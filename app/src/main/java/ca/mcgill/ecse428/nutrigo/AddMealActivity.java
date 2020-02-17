@@ -136,12 +136,8 @@ public class AddMealActivity extends AppCompatActivity {
 
         StringEntity entity = new StringEntity(jsonObject.toString(), "UTF-8");
 
-//        ByteArrayEntity entity = new ByteArrayEntity(jsonObject.toString().getBytes());
-//        entity.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
-
         asyncHttpClient.addHeader("Authorization", "Token "+ LoginActivity.getUserToken());
         asyncHttpClient.post("https://nutrigo-staging.herokuapp.com/nutri/meal/", params, new JsonHttpResponseHandler() {
-        //asyncHttpClient.post(this,"https://nutrigo-staging.herokuapp.com/nutri/meal/", entity, "application/json", new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Log.v("response", response.toString());
