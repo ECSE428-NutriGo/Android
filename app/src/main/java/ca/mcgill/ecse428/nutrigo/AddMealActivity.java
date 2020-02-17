@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -39,22 +40,7 @@ public class AddMealActivity extends AppCompatActivity {
     public static ArrayList<Integer> currentFoodItems = new ArrayList<>();
     public static ArrayList<String> currentFoodItemsNames = new ArrayList<>();
     Intent intent;
-    String error = "";
     EditText mealNameBox;
-
-
-    private void refreshErrorMessage() {
-        // set the error message
-        TextView tvError = findViewById(R.id.textView_error);
-        tvError.setText(error);
-
-        if (error == null || error.length() == 0) {
-            tvError.setVisibility(View.GONE);
-        } else {
-            tvError.setVisibility(View.VISIBLE);
-        }
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,13 +140,7 @@ public class AddMealActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                System.out.println("ERROR:" + statusCode);
-                try {
-                    error += errorResponse.get("message").toString();
-                } catch (JSONException e) {
-                    error += e.getMessage();
-                }
-                refreshErrorMessage();
+                Toast.makeText(AddMealActivity.this, errorResponse.toString(), Toast.LENGTH_LONG).show();
             }
 
         });

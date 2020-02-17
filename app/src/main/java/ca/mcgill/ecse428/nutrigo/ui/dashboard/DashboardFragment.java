@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -30,6 +31,7 @@ import ca.mcgill.ecse428.nutrigo.AddMealActivity;
 import ca.mcgill.ecse428.nutrigo.AddMealEntryActivity;
 import ca.mcgill.ecse428.nutrigo.LoginActivity;
 import ca.mcgill.ecse428.nutrigo.R;
+import ca.mcgill.ecse428.nutrigo.SignupActivity;
 import cz.msebera.android.httpclient.Header;
 
 public class DashboardFragment extends Fragment implements View.OnClickListener {
@@ -113,7 +115,9 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                 populateList("");
             }
             @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {}
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Toast.makeText(getActivity(), errorResponse.toString(), Toast.LENGTH_LONG).show();
+            }
 
         });
 
