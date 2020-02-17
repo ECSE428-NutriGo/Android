@@ -27,16 +27,15 @@ public class AddMealActivity extends AppCompatActivity {
   
     private String username;
 
-    public static Integer carbs = 0;
-    public static Integer protein = 0;
-    public static Integer fat = 0;
+    public static String carbs = "0";
+    public static String protein = "0";
+    public static String fat = "0";
     public static String name = "";
     public static ArrayList<Integer> currentFoodItems = new ArrayList<>();
     public static ArrayList<String> currentFoodItemsNames = new ArrayList<>();
     Intent intent;
     String error = "";
     EditText mealNameBox;
-    int mode = 0;
 
 
     private void refreshErrorMessage() {
@@ -86,19 +85,18 @@ public class AddMealActivity extends AppCompatActivity {
             for (String str : currentFoodItemsNames) {
                 foodItems = foodItems.concat(str + ", ");
             }
+            foodItems.substring(0, foodItems.length()-2);
             foodList.setText(foodItems);
         }
-        else{
 
             TextView carbsTV = findViewById(R.id.textView_carbsDyn);
-            carbsTV.setText(carbs.toString());
+            carbsTV.setText(carbs);
 
             TextView proteinTV = findViewById(R.id.textView_proteinDyn);
-            proteinTV.setText(protein.toString());
+            proteinTV.setText(protein);
 
             TextView fatTV = findViewById(R.id.textView_fatDyn);
-            fatTV.setText(fat.toString());
-        }
+            fatTV.setText(fat);
 
     }
 
@@ -107,37 +105,38 @@ public class AddMealActivity extends AppCompatActivity {
         intent = new Intent(this, MainActivity.class);
 
         RequestParams params1 = new RequestParams();
-        Log.v("hey", currentFoodItems.toArray().toString());
-        params1.put("fooditems", currentFoodItems.toArray());
-        params1.put("name", mealName);
+        //Log.v("hey", currentFoodItems.toArray().toString());
+        if (currentFoodItems != null) {
+            params1.put("fooditems", currentFoodItems.toArray());
+            params1.put("name", mealName);
+        }
 
         RequestParams params2 = new RequestParams();
-        params2.put("protein", protein);
-        params2.put("carb", carbs);
-        params2.put("fat", fat);
+        params2.put("protein", Integer.parseInt(protein));
+        params2.put("carb", Integer.parseInt(carbs));
+        params2.put("fat", Integer.parseInt(fat));
         params2.put("name", mealName);
 
-        final RequestParams params;
+        RequestParams params;
 
-        if (mode == 0)
+        if (currentFoodItems != null && !currentFoodItems.isEmpty())
             params = params1;
         else params = params2;
 
         Log.v("Hey0", params.toString());
-        Log.v("Hey1", params1.toString());
-        Log.v("Hey2", params2.toString());
 
-        asyncHttpClient.addHeader("Authorization", "Token "+LoginActivity.getUserToken());
+        asyncHttpClient.addHeader("Authorization", "Token "+ LoginActivity.getUserToken());
         asyncHttpClient.post("https://nutrigo-staging.herokuapp.com/nutri/meal/", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-
+                Log.v("response", response.toString());
                 name = "";
-                carbs = 0;
-                protein = 0;
-                fat = 0;
-                currentFoodItemsNames.clear();
+                carbs = "0";
+                protein = "0";
+                fat = "0";
+
                 currentFoodItems.clear();
+                currentFoodItemsNames.clear();
 
                 startActivity(intent);
             }
@@ -156,17 +155,13 @@ public class AddMealActivity extends AppCompatActivity {
     }
 
     public void addFoodItem(View view){
-        mode = 0;
-        carbs = 0;
-        protein = 0;
-        fat = 0;
+        carbs = "0";
+        protein = "0";
+        fat = "0";
         startActivity(new Intent(this, SearchFoodItemActivity.class));
     }
 
     public void manuallyEnterMacros(View view){
-        mode = 1;
-        currentFoodItems.clear();
-        currentFoodItemsNames.clear();
         intent = new Intent(this, ManuallyAddMacrosActivity.class);
         startActivity(intent);
     }

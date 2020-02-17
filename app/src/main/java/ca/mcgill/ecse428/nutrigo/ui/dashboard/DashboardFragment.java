@@ -7,6 +7,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -20,6 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -34,6 +36,11 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     private ArrayList<MealItem> listElements;
     private final AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
 
+    String selectedMealName;
+    Integer selectedMealId;
+
+    HashMap<String, Integer> mealIds = new HashMap<String, Integer>();
+
     @Override
     public void onClick(View v) {
         Intent ide = new Intent(getActivity(), AddMealActivity.class);
@@ -46,6 +53,16 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
 
         Button b = (Button) root.findViewById(R.id.createNewMeal_button);
         b.setOnClickListener(this);
+
+        final ListView lv = root.findViewById(R.id.mealList);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
+                MealItem item = (MealItem) adapter.getItemAtPosition(position);
+                selectedMealName = item.getName();
+                selectedMealId = mealIds.get(selectedMealName);
+            }
+        });
 
         listElements = new ArrayList<>();
 
@@ -69,7 +86,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                                     summary += ((JSONObject)(foods.get(j))).get("name").toString();
                                 }
                             }
-
+                            mealIds.put(meal.get("name").toString(),Integer.parseInt(meal.get("id").toString()));
                             listElements.add(new MealItem(meal.get("name").toString(), summary));
                         } catch(JSONException e) {
 
@@ -122,13 +139,15 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         }
     }
 
-    public void createMeal() {
+    public void createMeal(View view) {
         Intent ide = new Intent(getActivity(), AddMealActivity.class);
         startActivity(ide);
     }
 
-    public void mealEntry(){
+    public void mealEntry(View view){
         Intent ide = new Intent(getActivity(), AddMealEntryActivity.class);
+        AddMealEntryActivity.targetMealID = selectedMealId;
+        AddMealEntryActivity.targetMealName = selectedMealName;
         startActivity(ide);
     }
 }

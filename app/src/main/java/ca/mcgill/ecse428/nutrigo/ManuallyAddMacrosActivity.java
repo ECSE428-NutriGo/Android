@@ -2,6 +2,7 @@ package ca.mcgill.ecse428.nutrigo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -11,6 +12,10 @@ public class ManuallyAddMacrosActivity extends AppCompatActivity {
 
     Intent intent;
 
+    EditText carbsET;
+    EditText proteinET;
+    EditText fatsET;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +23,10 @@ public class ManuallyAddMacrosActivity extends AppCompatActivity {
 
         intent = new Intent(this, AddMealActivity.class);
 
-        //mealNameBox = findViewById(R.id.editText_mealname);
+        carbsET = findViewById(R.id.editText_carbs);
+        proteinET = findViewById(R.id.editText_protein);
+        fatsET = findViewById(R.id.editText_fat);
+
     }
 
     public void backToAddMeal(View view){
@@ -26,15 +34,17 @@ public class ManuallyAddMacrosActivity extends AppCompatActivity {
     }
 
     public void confirmMacros(View view){
-        EditText carbsET = findViewById(R.id.editText_carbs);
-        EditText proteinET = findViewById(R.id.editText_protein);
-        EditText fatsET = findViewById(R.id.editText_fat);
 
-        AddMealActivity.carbs = Integer.parseInt(carbsET.getText().toString());
-        AddMealActivity.protein = Integer.parseInt(proteinET.getText().toString());
-        AddMealActivity.fat = Integer.parseInt(fatsET.getText().toString());
+        AddMealActivity.carbs = carbsET.getText().toString();
+        AddMealActivity.protein = proteinET.getText().toString();
+        AddMealActivity.fat = fatsET.getText().toString();
 
-        AddMealActivity.currentFoodItems = null;
+        Log.v("Carbs: ", AddMealActivity.carbs);
+        Log.v("Protein: ", AddMealActivity.protein);
+        Log.v("Fat: ", AddMealActivity.fat);
+
+        AddMealActivity.currentFoodItems.clear();
+        AddMealActivity.currentFoodItemsNames.clear();
 
         startActivity(intent);
     }
