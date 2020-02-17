@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -35,7 +36,7 @@ public class AddMealActivity extends AppCompatActivity {
     Intent intent;
     String error = "";
     EditText mealNameBox;
-    int mode;
+    int mode = 0;
 
 
     private void refreshErrorMessage() {
@@ -90,13 +91,13 @@ public class AddMealActivity extends AppCompatActivity {
         else{
 
             TextView carbsTV = findViewById(R.id.textView_carbsDyn);
-            carbsTV.setText(carbs);
+            carbsTV.setText(carbs.toString());
 
             TextView proteinTV = findViewById(R.id.textView_proteinDyn);
-            proteinTV.setText(protein);
+            proteinTV.setText(protein.toString());
 
             TextView fatTV = findViewById(R.id.textView_fatDyn);
-            fatTV.setText(fat);
+            fatTV.setText(fat.toString());
         }
 
     }
@@ -106,6 +107,7 @@ public class AddMealActivity extends AppCompatActivity {
         intent = new Intent(this, MainActivity.class);
 
         RequestParams params1 = new RequestParams();
+        Log.v("hey", currentFoodItems.toArray().toString());
         params1.put("fooditems", currentFoodItems.toArray());
         params1.put("name", mealName);
 
@@ -115,15 +117,21 @@ public class AddMealActivity extends AppCompatActivity {
         params2.put("fat", fat);
         params2.put("name", mealName);
 
-        RequestParams params;
+        final RequestParams params;
 
         if (mode == 0)
             params = params1;
         else params = params2;
+
+        Log.v("Hey0", params.toString());
+        Log.v("Hey1", params1.toString());
+        Log.v("Hey2", params2.toString());
+
         asyncHttpClient.addHeader("Authorization", "Token "+LoginActivity.getUserToken());
         asyncHttpClient.post("https://nutrigo-staging.herokuapp.com/nutri/meal/", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+
                 name = "";
                 carbs = 0;
                 protein = 0;
