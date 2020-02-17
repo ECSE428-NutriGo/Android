@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,8 +37,8 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     private ArrayList<MealItem> listElements;
     private final AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
 
-    String selectedMealName;
-    Integer selectedMealId;
+    String selectedMealName = "default";
+    Integer selectedMealId = -1;
 
     HashMap<String, Integer> mealIds = new HashMap<String, Integer>();
 
@@ -159,9 +160,13 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     }
 
     public void mealEntry(View view){
-        Intent ide = new Intent(getActivity(), AddMealEntryActivity.class);
-        AddMealEntryActivity.targetMealID = selectedMealId;
-        AddMealEntryActivity.targetMealName = selectedMealName;
+        Intent ide = new Intent(this.getContext(), AddMealEntryActivity.class);
+
+        Bundle extras = new Bundle();
+        extras.putInt("id", selectedMealId);
+        extras.putString("mealname", selectedMealName);
+        Log.v("a", extras.toString());
+        ide.putExtras(extras);
         startActivity(ide);
     }
 }

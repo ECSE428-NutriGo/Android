@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.format.Time;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -48,6 +49,10 @@ public class AddMealEntryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_meal_entry);
 
+        Bundle intentExtras = getIntent().getExtras();
+        targetMealID = intentExtras.getInt("id", -1);
+        targetMealName = intentExtras.getString("mealname");
+
 
         intent = new Intent(this, MainActivity.class);
 
@@ -57,8 +62,8 @@ public class AddMealEntryActivity extends AppCompatActivity {
         datePicker = (DatePicker) findViewById(R.id.datePicker);
         timePicker = (TimePicker) findViewById(R.id.time_picker);
         text = (TextView) findViewById(R.id.textView4);
-        text.setText("Create Meal Entry of ");
-        text.append(targetMealName);
+        String title = "Create Meal Entry of " + targetMealName;
+        text.setText(title);
 
     }
 
@@ -79,7 +84,9 @@ public class AddMealEntryActivity extends AppCompatActivity {
         RequestParams rp = new RequestParams();
 
         rp.put("meal", targetMealID);
-        rp.put("timestamp", ts.toString());
+        //rp.put("timestamp", ts.toString());
+
+        Log.v("params", rp.toString());
 
         asyncHttpClient.addHeader("Authorization", "Token "+ LoginActivity.getUserToken());
         asyncHttpClient.post("https://nutrigo-staging.herokuapp.com/nutri/mealentry/", rp, new JsonHttpResponseHandler() {
@@ -89,8 +96,11 @@ public class AddMealEntryActivity extends AppCompatActivity {
                 targetMealID = -1;
                 startActivity(intent);
             }
+
             @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {}
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+            Log.v("error", errorResponse.toString());
+        }
         });
     }
 }

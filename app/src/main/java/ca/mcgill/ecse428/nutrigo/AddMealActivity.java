@@ -81,7 +81,7 @@ public class AddMealActivity extends AppCompatActivity {
         TextView foodList = findViewById(R.id.textView_itemlist);
         String foodItems = "";
 
-        if (currentFoodItemsNames != null) {
+        if (currentFoodItemsNames != null && !currentFoodItemsNames.isEmpty()) {
             for (String str : currentFoodItemsNames) {
                 foodItems = foodItems.concat(str + ", ");
             }
