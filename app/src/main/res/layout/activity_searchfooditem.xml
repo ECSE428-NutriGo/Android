@@ -18,7 +18,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.334" />
+        app:layout_constraintVertical_bias="0.334"
+        android:divider="#F38193"
+        android:dividerHeight="12.0sp" />
 
     <Button
         android:id="@+id/button_select"
@@ -27,7 +29,7 @@
         android:background="#EAA3AB"
         android:onClick="addFoodItem"
         android:text="@string/add_food_item"
-        android:textColor="#F9DBDC"
+        android:textColor="#ffffff"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +44,7 @@
         android:background="#EAA3AB"
         android:onClick="createNewFoodItem"
         android:text="CREATE NEW FOOD ITEM"
-        android:textColor="#F9DBDC"
+        android:textColor="#ffffff"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

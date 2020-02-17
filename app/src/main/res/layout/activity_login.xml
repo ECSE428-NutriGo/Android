@@ -33,15 +33,12 @@
             android:id="@+id/login_username_field"
             android:layout_width="247dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             android:ems="10"
             android:hint="Username"
             android:textColor="#ffffffff"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.554"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.39" />
@@ -50,8 +47,6 @@
             android:id="@+id/login_password_field"
             android:layout_width="247dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
@@ -59,15 +54,14 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.554"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.517" />
+            app:layout_constraintVertical_bias="0.521" />
 
         <Button
             android:id="@+id/login_button"
-            android:layout_width="159dp"
-            android:layout_height="86dp"
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
             android:background="#BD694D"
             android:onClick="login"
             android:text="LOGIN"
@@ -76,19 +70,21 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.883" />
+            app:layout_constraintVertical_bias="0.818" />
 
         <Button
             android:id="@+id/login_signup_button"
-            android:layout_width="wrap_content"
+            android:layout_width="144dp"
             android:layout_height="wrap_content"
             android:background="#BD694D"
             android:onClick="navSignup"
             android:text="SIGNUP"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#FFFFFF"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

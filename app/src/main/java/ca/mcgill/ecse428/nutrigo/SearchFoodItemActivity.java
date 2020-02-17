@@ -110,8 +110,8 @@ public class SearchFoodItemActivity extends AppCompatActivity {
     }
 
     public void createNewFoodItem(View view){
-//        intent = new Intent(this, CreateNewFoodItemActivity.class);
-//        startActivity(intent);
+        intent = new Intent(SearchFoodItemActivity.this, AddFoodItemActivity.class);
+        startActivity(intent);
     }
 
 
