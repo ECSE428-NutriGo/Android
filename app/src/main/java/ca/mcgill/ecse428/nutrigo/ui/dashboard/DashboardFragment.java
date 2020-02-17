@@ -41,10 +41,12 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                 Intent ide = new Intent(getActivity(), AddMealActivity.class);
                 startActivity(ide);
             }
+            break;
             case R.id.createMealEntry_button: {
                 Intent ide = new Intent(getActivity(), AddMealEntryActivity.class);
                 startActivity(ide);
             }
+            break;
         }
 
     }

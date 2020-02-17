@@ -69,7 +69,6 @@ public class AddMealEntryActivity extends AppCompatActivity {
         text = (TextView) findViewById(R.id.textView4);
         text.setText("Create Meal Entry of ");
         text.append(mealName);
-
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)// don't know if this messes it up
