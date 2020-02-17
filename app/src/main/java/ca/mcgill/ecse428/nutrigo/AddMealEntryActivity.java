@@ -36,6 +36,7 @@ public class AddMealEntryActivity extends AppCompatActivity {
     DatePicker datePicker;
     TimePicker timePicker;
     TextView text;
+
     //THESE ARE THE STATIC VALUES THAT MUST BE SET BY THE QUERY MEALS ACTIVITY !!!!
     public static String targetMealName = "";
     public static Integer targetMealID = -1;
@@ -47,11 +48,11 @@ public class AddMealEntryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_meal_entry);
 
+
         intent = new Intent(this, MainActivity.class);
 
         //NOTE THAT WHEN WE come to this activity page we need to transmit the meal id from wich it was
         //accessed and we should take that value and set mealID to it so we know what meal to create.
-
 
         datePicker = (DatePicker) findViewById(R.id.datePicker);
         timePicker = (TimePicker) findViewById(R.id.time_picker);
@@ -61,11 +62,8 @@ public class AddMealEntryActivity extends AppCompatActivity {
 
     }
 
-    //NOTE THAT WHEN WE come to this activity page we need to transmit the meal id from wich it was
-    //accessed and we hsoudl
-
     @RequiresApi(api = Build.VERSION_CODES.M)// don't know if this messes it up
-    public void sendMessage(View view) {
+    public void createEntry(View view) {
         // Do something in response to button click
         int day=datePicker.getDayOfMonth();
         int month= datePicker.getMonth();
@@ -79,10 +77,12 @@ public class AddMealEntryActivity extends AppCompatActivity {
         Timestamp ts = new Timestamp(cal.getTimeInMillis());
 
         RequestParams rp = new RequestParams();
+
         rp.put("meal", targetMealID);
         rp.put("timestamp", ts.toString());
 
-        asyncHttpClient.put("https://nutrigo-staging.herokuapp.com/rest-auth/nutri/mealentry/", rp, new JsonHttpResponseHandler() {
+        asyncHttpClient.addHeader("Authorization", "Token "+ LoginActivity.getUserToken());
+        asyncHttpClient.post("https://nutrigo-staging.herokuapp.com/nutri/mealentry/", rp, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 targetMealName = "";
