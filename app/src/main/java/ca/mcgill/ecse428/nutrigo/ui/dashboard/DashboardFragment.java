@@ -36,16 +36,28 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        Intent ide = new Intent(getActivity(), AddMealActivity.class);
-        startActivity(ide);
+        switch (v.getId()) {
+            case R.id.createNewMeal_button: {
+                Intent ide = new Intent(getActivity(), AddMealActivity.class);
+                startActivity(ide);
+            }
+            case R.id.createMealEntry_button: {
+                Intent ide = new Intent(getActivity(), AddMealEntryActivity.class);
+                startActivity(ide);
+            }
+        }
+
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.activity_meals, container, false);
 
-        Button b = (Button) root.findViewById(R.id.createNewMeal_button);
-        b.setOnClickListener(this);
+        Button b1 = (Button) root.findViewById(R.id.createNewMeal_button);
+        b1.setOnClickListener(this);
+
+        Button b2 = (Button) root.findViewById(R.id.createMealEntry_button);
+        b2.setOnClickListener(this);
 
         listElements = new ArrayList<>();
 
