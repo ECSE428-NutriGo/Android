@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -29,19 +28,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private static String userToken;
 
-    String error = "";
-
-    private void refreshErrorMessage() {
-        // set the error message
-        TextView tvError = findViewById(R.id.textView_error);
-        tvError.setText(error.trim());
-
-        if (error == null || error.length() == 0) {
-            tvError.setVisibility(View.GONE);
-        } else {
-            tvError.setVisibility(View.VISIBLE);
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,20 +57,12 @@ public class LoginActivity extends AppCompatActivity {
                 } catch(JSONException e) {
 
                 }
-                error = "";
-                refreshErrorMessage();
                 Intent ide = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(ide);
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                try {
-                    error += errorResponse.get("message").toString();
-                } catch (JSONException e) {
-                    error += e.getMessage();
-                }
-                refreshErrorMessage();
             }
         });
     }
