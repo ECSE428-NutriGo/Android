@@ -28,18 +28,9 @@ import cz.msebera.android.httpclient.Header;
 
 public class AddMealEntryActivity extends AppCompatActivity {
     private final AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
-    private String username;
-
-
-    private Date date;
-    private Time time;
-
-    private Timestamp timeStamp;
     DatePicker datePicker;
     TimePicker timePicker;
-    TextView text;
 
-    //THESE ARE THE STATIC VALUES THAT MUST BE SET BY THE QUERY MEALS ACTIVITY !!!!
     public static String targetMealName = "";
     public static Integer targetMealID = -1;
 
@@ -52,31 +43,22 @@ public class AddMealEntryActivity extends AppCompatActivity {
 
         targetMealID = DashboardFragment.selectedMealId;
         targetMealName = DashboardFragment.selectedMealName;
-
+        Log.v("hey", targetMealID.toString());
 
         intent = new Intent(this, MainActivity.class);
 
-        //NOTE THAT WHEN WE come to this activity page we need to transmit the meal id from wich it was
-        //accessed and we should take that value and set mealID to it so we know what meal to create.
-
         datePicker = (DatePicker) findViewById(R.id.datePicker);
         timePicker = (TimePicker) findViewById(R.id.time_picker);
-        text = (TextView) findViewById(R.id.textView4);
-        String title = "Create Meal Entry of " + targetMealName;
-        text.setText(title);
-
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)// don't know if this messes it up
     public void createEntry(View view) {
         // Do something in response to button click
-        int day=datePicker.getDayOfMonth();
-        int month= datePicker.getMonth();
-        int year= datePicker.getYear();
-
-        int hour= timePicker.getHour();
-
-        int minute= timePicker.getMinute();
+        int day = datePicker.getDayOfMonth();
+        int month = datePicker.getMonth();
+        int year = datePicker.getYear();
+        int hour = timePicker.getHour();
+        int minute = timePicker.getMinute();
 
         GregorianCalendar cal = new GregorianCalendar(year, month, day, hour, minute, 0);
         Timestamp ts = new Timestamp(cal.getTimeInMillis());
@@ -85,8 +67,6 @@ public class AddMealEntryActivity extends AppCompatActivity {
 
         rp.put("meal", targetMealID);
         //rp.put("timestamp", ts.toString());
-
-        Log.v("params", rp.toString());
 
         asyncHttpClient.addHeader("Authorization", "Token "+ LoginActivity.getUserToken());
         asyncHttpClient.post("https://nutrigo-staging.herokuapp.com/nutri/mealentry/", rp, new JsonHttpResponseHandler() {
@@ -99,8 +79,7 @@ public class AddMealEntryActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-            Log.v("error", errorResponse.toString());
-        }
+            }
         });
     }
 }

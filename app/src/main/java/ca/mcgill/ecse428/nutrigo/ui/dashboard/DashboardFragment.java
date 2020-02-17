@@ -40,7 +40,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     private final AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
 
     public static String selectedMealName = "default";
-    public static Integer selectedMealId = -1;
+    public static int selectedMealId = -1;
 
     HashMap<String, Integer> mealIds = new HashMap<String, Integer>();
 
@@ -53,8 +53,13 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
             }
             break;
             case R.id.createMealEntry_button: {
-                Intent ide = new Intent(getActivity(), AddMealEntryActivity.class);
-                startActivity(ide);
+                if(selectedMealId != -1) {
+                    Intent ide = new Intent(getActivity(), AddMealEntryActivity.class);
+                    startActivity(ide);
+                }
+                else{
+                    Toast.makeText(getActivity(), "Error: no meal provided", Toast.LENGTH_LONG).show();
+                }
             }
             break;
         }
