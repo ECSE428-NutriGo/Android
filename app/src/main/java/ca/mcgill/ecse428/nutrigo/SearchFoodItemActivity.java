@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -44,7 +43,7 @@ public class SearchFoodItemActivity extends AppCompatActivity {
 
         intent = new Intent(this, AddMealActivity.class);
 
-        asyncHttpClient.addHeader("Authorization", "Token adf5ca6fa7ad08d8cb1fdfd471a92a92d6442997");
+        asyncHttpClient.addHeader("Authorization", "Token "+ LoginActivity.getUserToken());
         asyncHttpClient.get("https://nutrigo-staging.herokuapp.com/nutri/fooditem/", new RequestParams(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -53,9 +52,10 @@ public class SearchFoodItemActivity extends AppCompatActivity {
                     for(int i = 0; i < ((JSONArray)foodItems).length(); i++) {
 
                         JSONObject item = (JSONObject)((JSONArray)foodItems).get(i);
-                        String[] macros = {item.get("carb").toString(),item.get("protein").toString(),item.get("fat").toString()};
+                        Integer[] macros = {(Integer.parseInt(item.get("carb").toString())),(Integer.parseInt(item.get("protein").toString())),(Integer.parseInt(item.get("fat").toString()))};
                         String id = item.get("id").toString();
                         Integer id1 = Integer.parseInt(id);
+
                         ids.put(item.get("name").toString(),id1);
 
                         listElements.add(new ListFoodItem(item.get("name").toString(), macros));
@@ -136,11 +136,11 @@ public class SearchFoodItemActivity extends AppCompatActivity {
 
 class ListFoodItem {
     private String item;
-    private String carbs;
-    private String protein;
-    private String fat;
+    private Integer carbs;
+    private Integer protein;
+    private Integer fat;
 
-    public ListFoodItem(String name, String[] macros) {
+    public ListFoodItem(String name, Integer[] macros) {
         this.item = name;
         this.carbs = macros[0];
         this.protein = macros[1];
@@ -151,8 +151,8 @@ class ListFoodItem {
         return item;
     }
 
-    public String[] getMacros() {
-        String[] macros= {carbs, protein, fat};
+    public Integer[] getMacros() {
+        Integer[] macros = {carbs, protein, fat};
         return macros;
     }
 
@@ -160,7 +160,7 @@ class ListFoodItem {
         this.item = name;
     }
 
-    public void setMacros(String carbs, String protein, String fat) {
+    public void setMacros(Integer carbs, Integer protein, Integer fat) {
         this.carbs = carbs;
         this.protein = protein;
         this.fat = fat;

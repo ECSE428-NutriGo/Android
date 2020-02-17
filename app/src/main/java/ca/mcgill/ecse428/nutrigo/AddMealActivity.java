@@ -26,15 +26,16 @@ public class AddMealActivity extends AppCompatActivity {
   
     private String username;
 
-    public static String carbs = "0";
-    public static String protein = "0";
-    public static String fat = "0";
+    public static Integer carbs = 0;
+    public static Integer protein = 0;
+    public static Integer fat = 0;
     public static String name = "";
     public static ArrayList<Integer> currentFoodItems = new ArrayList<>();
     public static ArrayList<String> currentFoodItemsNames = new ArrayList<>();
     Intent intent;
     String error = "";
     EditText mealNameBox;
+    int mode;
 
 
     private void refreshErrorMessage() {
@@ -105,7 +106,7 @@ public class AddMealActivity extends AppCompatActivity {
         intent = new Intent(this, MainActivity.class);
 
         RequestParams params1 = new RequestParams();
-        params1.put("fooditems", currentFoodItems);
+        params1.put("fooditems", currentFoodItems.toArray());
         params1.put("name", mealName);
 
         RequestParams params2 = new RequestParams();
@@ -116,7 +117,7 @@ public class AddMealActivity extends AppCompatActivity {
 
         RequestParams params;
 
-        if (currentFoodItems != null)
+        if (mode == 0)
             params = params1;
         else params = params2;
         asyncHttpClient.addHeader("Authorization", "Token "+LoginActivity.getUserToken());
@@ -124,9 +125,9 @@ public class AddMealActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 name = "";
-                carbs = "0";
-                protein = "0";
-                fat = "0";
+                carbs = 0;
+                protein = 0;
+                fat = 0;
                 currentFoodItemsNames.clear();
                 currentFoodItems.clear();
 
@@ -147,10 +148,17 @@ public class AddMealActivity extends AppCompatActivity {
     }
 
     public void addFoodItem(View view){
+        mode = 0;
+        carbs = 0;
+        protein = 0;
+        fat = 0;
         startActivity(new Intent(this, SearchFoodItemActivity.class));
     }
 
     public void manuallyEnterMacros(View view){
+        mode = 1;
+        currentFoodItems.clear();
+        currentFoodItemsNames.clear();
         intent = new Intent(this, ManuallyAddMacrosActivity.class);
         startActivity(intent);
     }

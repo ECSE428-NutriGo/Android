@@ -45,7 +45,7 @@ public class CustomBaseAdapterFoodItem extends BaseAdapter {
         }
 
         holder.txtName.setText(searchArrayList.get(position).getItem());
-        String[] macros= searchArrayList.get(position).getMacros();
+        Integer[] macros= searchArrayList.get(position).getMacros();
         String display = "Carbs: "+ macros[0] + " Protein: " + macros[1] + " Fat: " + macros[2];
         holder.txtCityState.setText(display);
 

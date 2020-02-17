@@ -30,9 +30,9 @@ public class ManuallyAddMacrosActivity extends AppCompatActivity {
         EditText proteinET = findViewById(R.id.editText_protein);
         EditText fatsET = findViewById(R.id.editText_fat);
 
-        AddMealActivity.carbs = carbsET.getText().toString();
-        AddMealActivity.protein = proteinET.getText().toString();
-        AddMealActivity.fat = fatsET.getText().toString();
+        AddMealActivity.carbs = Integer.parseInt(carbsET.getText().toString());
+        AddMealActivity.protein = Integer.parseInt(proteinET.getText().toString());
+        AddMealActivity.fat = Integer.parseInt(fatsET.getText().toString());
 
         AddMealActivity.currentFoodItems = null;
 
