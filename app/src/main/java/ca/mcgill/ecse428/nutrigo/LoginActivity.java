@@ -2,6 +2,7 @@ package ca.mcgill.ecse428.nutrigo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -66,7 +67,19 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Toast.makeText(LoginActivity.this, errorResponse.toString(), Toast.LENGTH_LONG).show();
+                String error = errorResponse.toString();
+                String[] messages = error.split("],\"");
+                String message = "";
+                for(int i = 0; i < messages.length; i++) {
+                    int a = messages[i].indexOf("[");
+                    if(i == messages.length - 1) {
+                        message += messages[i].substring(a+2, messages[i].length()-3);
+                    }
+                    else{
+                        message += messages[i].substring(a+2, messages[i].length()-1)+"\n";
+                    }
+                }
+                Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG).show();
             }
         });
     }

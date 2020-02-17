@@ -121,7 +121,19 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
             }
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Toast.makeText(getActivity(), errorResponse.toString(), Toast.LENGTH_LONG).show();
+                String error = errorResponse.toString();
+                String[] messages = error.split("],\"");
+                String message = "";
+                for(int i = 0; i < messages.length; i++) {
+                    int a = messages[i].indexOf("[");
+                    if(i == messages.length - 1) {
+                        message += messages[i].substring(a+2, messages[i].length()-3);
+                    }
+                    else{
+                        message += messages[i].substring(a+2, messages[i].length()-1)+"\n";
+                    }
+                }
+                Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
             }
 
         });
