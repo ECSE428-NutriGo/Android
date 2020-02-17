@@ -16,10 +16,15 @@ import com.loopj.android.http.RequestParams;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
 import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.ByteArrayEntity;
+import cz.msebera.android.httpclient.entity.StringEntity;
+import cz.msebera.android.httpclient.message.BasicHeader;
+import cz.msebera.android.httpclient.protocol.HTTP;
 
 
 public class AddMealActivity extends AppCompatActivity {
@@ -100,14 +105,14 @@ public class AddMealActivity extends AppCompatActivity {
 
     }
 
-    public void addMeal(View view){
+    public void addMeal(View view) throws JSONException, UnsupportedEncodingException {
         String mealName = mealNameBox.getText().toString();
         intent = new Intent(this, MainActivity.class);
 
         RequestParams params1 = new RequestParams();
         //Log.v("hey", currentFoodItems.toArray().toString());
         if (currentFoodItems != null) {
-            params1.put("fooditems", currentFoodItems.toArray());
+            params1.put("fooditems", currentFoodItems.toString());
             params1.put("name", mealName);
         }
 
@@ -125,8 +130,18 @@ public class AddMealActivity extends AppCompatActivity {
 
         Log.v("Hey0", params.toString());
 
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name", mealName);
+        jsonObject.put("fooditems", currentFoodItems);
+
+        StringEntity entity = new StringEntity(jsonObject.toString(), "UTF-8");
+
+//        ByteArrayEntity entity = new ByteArrayEntity(jsonObject.toString().getBytes());
+//        entity.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
+
         asyncHttpClient.addHeader("Authorization", "Token "+ LoginActivity.getUserToken());
         asyncHttpClient.post("https://nutrigo-staging.herokuapp.com/nutri/meal/", params, new JsonHttpResponseHandler() {
+        //asyncHttpClient.post(this,"https://nutrigo-staging.herokuapp.com/nutri/meal/", entity, "application/json", new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Log.v("response", response.toString());
@@ -143,6 +158,7 @@ public class AddMealActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                System.out.println("ERROR:" + statusCode);
                 try {
                     error += errorResponse.get("message").toString();
                 } catch (JSONException e) {
