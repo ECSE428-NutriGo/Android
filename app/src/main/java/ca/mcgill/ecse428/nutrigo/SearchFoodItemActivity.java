@@ -4,10 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -18,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import androidx.appcompat.app.AppCompatActivity;
 import cz.msebera.android.httpclient.Header;
@@ -26,6 +28,9 @@ public class SearchFoodItemActivity extends AppCompatActivity {
     private ArrayList<ListFoodItem> listElements;
     private final AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
 
+    private HashMap<String, Integer> ids;
+    private Integer itemId;
+    private String itemName;
     Intent intent;
 
     @Override
@@ -33,6 +38,7 @@ public class SearchFoodItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_searchfooditem);
 
+        ids = new HashMap<String, Integer>();
 
         listElements = new ArrayList<>();
 
@@ -48,6 +54,9 @@ public class SearchFoodItemActivity extends AppCompatActivity {
 
                         JSONObject item = (JSONObject)((JSONArray)foodItems).get(i);
                         String[] macros = {item.get("carb").toString(),item.get("protein").toString(),item.get("fat").toString()};
+                        String id = item.get("id").toString();
+                        Integer id1 = Integer.parseInt(id);
+                        ids.put(item.get("name").toString(),id1);
 
                         listElements.add(new ListFoodItem(item.get("name").toString(), macros));
                     }
@@ -61,6 +70,17 @@ public class SearchFoodItemActivity extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {}
 
+        });
+
+        ListView list = findViewById(R.id.listThing);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
+                ListFoodItem item = (ListFoodItem) adapter.getItemAtPosition(position);
+                itemName = item.getItem();
+                itemId = ids.get(itemName);
+            }
         });
 
         final EditText search = (EditText) findViewById(R.id.editText_search);
@@ -83,7 +103,10 @@ public class SearchFoodItemActivity extends AppCompatActivity {
     }
 
     public void addFoodItem(View view){
-
+        intent = new Intent(this, AddMealActivity.class);
+        AddMealActivity.currentFoodItems.add(itemId);
+        AddMealActivity.currentFoodItemsNames.add(itemName);
+        startActivity(intent);
     }
 
     public void createNewFoodItem(View view){

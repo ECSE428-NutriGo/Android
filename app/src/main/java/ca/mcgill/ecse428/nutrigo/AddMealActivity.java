@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -31,8 +30,8 @@ public class AddMealActivity extends AppCompatActivity {
     public static String protein = "0";
     public static String fat = "0";
     public static String name = "";
-    public static ArrayList<String> currentFoodItems = new ArrayList<>();
-
+    public static ArrayList<Integer> currentFoodItems = new ArrayList<>();
+    public static ArrayList<String> currentFoodItemsNames = new ArrayList<>();
     Intent intent;
     String error = "";
     EditText mealNameBox;
@@ -81,8 +80,8 @@ public class AddMealActivity extends AppCompatActivity {
         TextView foodList = findViewById(R.id.textView_itemlist);
         String foodItems = "";
 
-        if (currentFoodItems != null) {
-            for (String str : currentFoodItems) {
+        if (currentFoodItemsNames != null) {
+            for (String str : currentFoodItemsNames) {
                 foodItems = foodItems.concat(str + ", ");
             }
             foodList.setText(foodItems);
@@ -128,6 +127,8 @@ public class AddMealActivity extends AppCompatActivity {
                 carbs = "0";
                 protein = "0";
                 fat = "0";
+                currentFoodItemsNames.clear();
+                currentFoodItems.clear();
 
                 startActivity(intent);
             }

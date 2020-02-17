@@ -26,8 +26,8 @@
 
     <Button
         android:id="@+id/createNewMeal_button"
-        android:layout_width="194dp"
-        android:layout_height="84dp"
+        android:layout_width="142dp"
+        android:layout_height="58dp"
         android:background="#A85F6A"
         android:text="CREATE MEAL"
         android:textColor="#FFFFFF"
@@ -35,14 +35,34 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.156"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.79" />
+        app:layout_constraintVertical_bias="0.78" />
+
+    <Button
+        android:id="@+id/createNewMeal_button2"
+        android:layout_width="146dp"
+        android:layout_height="56dp"
+        android:background="#A85F6A"
+        android:onClick="mealEntry"
+        android:text="CREATE MEAL ENTRY"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.777" />
 
     <ListView
         android:id="@+id/mealList"
         android:layout_width="344dp"
         android:layout_height="292dp"
+        android:choiceMode="singleChoice"
+        android:listSelector="#EAA3AB"
         android:background="#A85F6A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

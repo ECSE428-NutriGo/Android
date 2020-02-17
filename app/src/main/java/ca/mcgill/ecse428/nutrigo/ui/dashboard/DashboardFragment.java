@@ -7,10 +7,9 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Button;
-
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -24,10 +23,9 @@ import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
 import ca.mcgill.ecse428.nutrigo.AddMealActivity;
+import ca.mcgill.ecse428.nutrigo.AddMealEntryActivity;
 import ca.mcgill.ecse428.nutrigo.LoginActivity;
-import ca.mcgill.ecse428.nutrigo.MainActivity;
 import ca.mcgill.ecse428.nutrigo.R;
 import cz.msebera.android.httpclient.Header;
 
@@ -126,6 +124,11 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
 
     public void createMeal() {
         Intent ide = new Intent(getActivity(), AddMealActivity.class);
+        startActivity(ide);
+    }
+
+    public void mealEntry(){
+        Intent ide = new Intent(getActivity(), AddMealEntryActivity.class);
         startActivity(ide);
     }
 }
