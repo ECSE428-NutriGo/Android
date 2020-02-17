@@ -39,8 +39,8 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     private ArrayList<MealItem> listElements;
     private final AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
 
-    String selectedMealName = "default";
-    Integer selectedMealId = -1;
+    public static String selectedMealName = "default";
+    public static Integer selectedMealId = -1;
 
     HashMap<String, Integer> mealIds = new HashMap<String, Integer>();
 

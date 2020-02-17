@@ -2,10 +2,8 @@ package ca.mcgill.ecse428.nutrigo;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +15,7 @@ import com.loopj.android.http.RequestParams;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AppCompatActivity;
 import cz.msebera.android.httpclient.Header;
 
 public class LoginActivity extends AppCompatActivity {
@@ -31,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private static String userToken;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

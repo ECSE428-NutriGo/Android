@@ -22,6 +22,7 @@ import java.util.GregorianCalendar;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import ca.mcgill.ecse428.nutrigo.ui.dashboard.DashboardFragment;
 import cz.msebera.android.httpclient.Header;
 
 
@@ -49,9 +50,8 @@ public class AddMealEntryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_meal_entry);
 
-        Bundle intentExtras = getIntent().getExtras();
-        targetMealID = intentExtras.getInt("id", -1);
-        targetMealName = intentExtras.getString("mealname");
+        targetMealID = DashboardFragment.selectedMealId;
+        targetMealName = DashboardFragment.selectedMealName;
 
 
         intent = new Intent(this, MainActivity.class);
