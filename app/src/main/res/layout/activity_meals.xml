@@ -57,7 +57,7 @@
         app:layout_constraintVertical_bias="0.777" />
 
     <ListView
-        android:id="@+id/mealList"
+        android:id="@+id/fooditemList"
         android:layout_width="345dp"
         android:layout_height="255dp"
         android:background="#A85F6A"
