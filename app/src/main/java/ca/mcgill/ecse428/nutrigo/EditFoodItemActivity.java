@@ -26,10 +26,21 @@ public class EditFoodItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_food_item);
+        try {
+            wait(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        //getIntent().getExtra("SelectedID");
+        food_item_id = 1;
+        Bundle bundle = getIntent().getExtras();
+        food_item_id= bundle.getInt("SelectedID");
 
 
+               // getIntent().getExtras().getInt("SelectedID");
         // pretend i am passed in the following food item id
-        food_item_id=1;
+        //food_item_id=this.getExtra("");
 
         //
         RequestParams rp = new RequestParams();
@@ -92,8 +103,8 @@ public class EditFoodItemActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 
-                //Intent ide = new Intent(EditFoodItemActivity.this, SearchFoodItemActivity.class);
-                //startActivity(ide);
+                Intent ide = new Intent(EditFoodItemActivity.this, SearchFoodItemActivity.class);
+                startActivity(ide);
                 //this.finish();
             }
 
@@ -109,7 +120,7 @@ public class EditFoodItemActivity extends AppCompatActivity {
 
         });
 
-        this.finish();
+        //this.finish();
     }
 
     public void cancelEditFoodItem(View view){

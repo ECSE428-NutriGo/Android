@@ -25,6 +25,7 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <activity
@@ -56,6 +57,20 @@
             android:name=".AddMealEntryActivity"
             android:label="@string/app_name">
         </activity>
+
+        <activity
+            android:name=".EditFoodItemActivity"
+            android:label="Nutrigo">
+
+        </activity>
+
+        <activity
+            android:name=".ChangePasswordActivity"
+            android:label="Nutrigo">
+
+        </activity>
+
+
 
     </application>
 </manifest>

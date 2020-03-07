@@ -63,4 +63,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         });
         return root;
     }
+
+    public void changePassword(){
+        Intent i= new Intent(this,ChangePasswordActivity);
+        startActivity(i);
+
+    }
 }
