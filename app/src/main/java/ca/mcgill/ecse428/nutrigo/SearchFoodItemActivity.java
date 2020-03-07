@@ -83,6 +83,27 @@ public class SearchFoodItemActivity extends AppCompatActivity {
             }
         });
 
+        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            public boolean onItemLongClick(AdapterView<?> adapter, View v,
+                                           int position, long id) {
+                ListFoodItem item = (ListFoodItem) adapter.getItemAtPosition(position);
+
+
+                String name = item.getItem();
+                int food_item_id= ids.get(name);
+                startEditFoodItemActivity(food_item_id);
+
+                //Intent i = new Intent(SearchFoodItemActivity, EditFoodItemActivity.class);
+
+
+               // startActivity(i);
+                return true;
+            }
+        });
+
+
+
+
         final EditText search = (EditText) findViewById(R.id.editText_search);
         search.addTextChangedListener(new TextWatcher() {
             @Override
@@ -100,6 +121,16 @@ public class SearchFoodItemActivity extends AppCompatActivity {
 
             }
         });
+    }
+    public void startEditFoodItemActivity(int itemId){
+        intent= new Intent(this, EditFoodItemActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putInt("SelectedID",itemId);
+        //intent.putExtra("SelectedID",itemId);
+        intent.putExtras(bundle);
+        startActivity(intent);
+
+
     }
 
     public void addFoodItem(View view){
