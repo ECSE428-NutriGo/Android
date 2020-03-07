@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 
 import ca.mcgill.ecse428.nutrigo.AddMealEntryActivity;
 import ca.mcgill.ecse428.nutrigo.LoginActivity;
+import ca.mcgill.ecse428.nutrigo.MealEntriesActivity;
 import ca.mcgill.ecse428.nutrigo.R;
 import cz.msebera.android.httpclient.Header;
 
@@ -30,9 +31,19 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        LoginActivity.setUserToken("");
-        Intent ide = new Intent(getActivity(), LoginActivity.class);
-        startActivity(ide);
+        switch (v.getId()) {
+            case R.id.logout_button: {
+                LoginActivity.setUserToken("");
+                Intent ide = new Intent(getActivity(), LoginActivity.class);
+                startActivity(ide);
+            }
+            break;
+            case R.id.mealentries_button: {
+                Intent ide = new Intent(getActivity(), MealEntriesActivity.class);
+                startActivity(ide);
+            }
+            break;
+        }
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,

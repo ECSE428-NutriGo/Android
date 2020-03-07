@@ -57,5 +57,10 @@
             android:label="@string/app_name">
         </activity>
 
+        <activity
+            android:name=".MealEntriesActivity"
+            android:label="@string/app_name">
+        </activity>
+
     </application>
 </manifest>
