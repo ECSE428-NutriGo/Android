@@ -35,7 +35,7 @@ public class ChangeContactInfoActivity extends AppCompatActivity {
                 try {
                     edit_username_field.setText(response.get("username").toString());
                     oldpass= response.get("password").toString();
-
+                    username = response.get("username").toString();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -57,6 +57,9 @@ public class ChangeContactInfoActivity extends AppCompatActivity {
             return;
         }
         if(!edit_curr_field.getText().equals(oldpass)){
+            return;
+        }
+        if(!edit_username_field.getText().equals(username)){
             return;
         }
 

@@ -84,6 +84,7 @@
         android:layout_width="139dp"
         android:layout_height="wrap_content"
         android:background="#2D727C"
+        android:onClick="edit"
         android:text="Update your Info"
         android:textColor="#ffffff"
         android:textSize="24sp"

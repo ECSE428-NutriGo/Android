@@ -29,6 +29,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import ca.mcgill.ecse428.nutrigo.AddMealActivity;
 import ca.mcgill.ecse428.nutrigo.AddMealEntryActivity;
+import ca.mcgill.ecse428.nutrigo.EditUserActivity;
 import ca.mcgill.ecse428.nutrigo.LoginActivity;
 import ca.mcgill.ecse428.nutrigo.R;
 import ca.mcgill.ecse428.nutrigo.SignupActivity;
