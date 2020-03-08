@@ -18,46 +18,45 @@
             android:text="In order to change your password, insert your username and current password, as well as the new password"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#ffffffff"
-            android:textSize="30sp"
+            android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.869"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.376" />
+            app:layout_constraintVertical_bias="0.100" />
 
         <TextView
             android:id="@+id/textViewUserName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="144dp"
+            android:layout_height="40dp"
             android:text="Username:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#ffffffff"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.101"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.295" />
+
+        <EditText
+            android:id="@+id/edit_username_field"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
             android:textColor="#ffffffff"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.869"
+            app:layout_constraintHorizontal_bias="0.902"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.376" />
-
-        <EditText
-            android:id="@+id/edit_username_field"
-            android:layout_width="247dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:textColor="#ffffffff"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.39" />
-
-
-
+            app:layout_constraintVertical_bias="0.284" />
 
         <TextView
             android:id="@+id/textViewCurrPass"
@@ -66,27 +65,28 @@
             android:text="Old Password:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#ffffffff"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.869"
+            app:layout_constraintHorizontal_bias="0.032"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.376" />
+            app:layout_constraintVertical_bias="0.375" />
 
         <EditText
             android:id="@+id/edit_current_pass_field"
-            android:layout_width="247dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:textColor="#ffffffff"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.902"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.39" />
+            app:layout_constraintVertical_bias="0.377" />
 
         <TextView
             android:id="@+id/textViewNewPass1"
@@ -95,56 +95,58 @@
             android:text="New Password:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#ffffffff"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.869"
+            app:layout_constraintHorizontal_bias="0.033"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.376" />
+            app:layout_constraintVertical_bias="0.46" />
 
         <EditText
             android:id="@+id/edit_new_pass_field"
-            android:layout_width="247dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:textColor="#ffffffff"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.905"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.39" />
+            app:layout_constraintVertical_bias="0.467" />
 
         <TextView
             android:id="@+id/textViewNewPass2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Confirm Password:"
+            android:text="Confirm Pass:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#ffffffff"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.869"
+            app:layout_constraintHorizontal_bias="0.087"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.376" />
+            app:layout_constraintVertical_bias="0.546" />
 
         <EditText
             android:id="@+id/edit_new_pass2_field"
-            android:layout_width="247dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:textColor="#ffffffff"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.905"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.39" />
+            app:layout_constraintVertical_bias="0.555" />
 
         <Button
             android:id="@+id/editUser"

@@ -39,6 +39,12 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
     }
 
+    public void navChangePass(View view) {
+        Intent ide = new Intent(LoginActivity.this, ChangeContactInfoActivity.class);
+        startActivity(ide);
+    }
+
+
     public void navSignup(View view) {
         Intent ide = new Intent(LoginActivity.this, SignupActivity.class);
         startActivity(ide);
@@ -83,4 +89,5 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 }

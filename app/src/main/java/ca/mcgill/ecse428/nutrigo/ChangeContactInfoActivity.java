@@ -67,6 +67,7 @@ public class ChangeContactInfoActivity extends AppCompatActivity {
         asyncHttpClient.put("https://nutrigo-staging.herokuapp.com/rest-auth/user/", rp, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                oldpass= edit_curr_field.getText().toString();
                 Intent ide = new Intent(ChangeContactInfoActivity.this, MainActivity.class);
                 startActivity(ide);
             }

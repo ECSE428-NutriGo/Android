@@ -12,6 +12,24 @@
         android:background="#FF9C63"
         android:orientation="vertical">
 
+
+        <TextView
+            android:id="@+id/textViewInstructions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Attributes"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#ffffffff"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.04" />
+
+
         <TextView
             android:id="@+id/textViewCurrentWeight"
             android:layout_width="wrap_content"
@@ -19,27 +37,28 @@
             android:text="Current Weight:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#ffffffff"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.869"
+            app:layout_constraintHorizontal_bias="0.059"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.376" />
+            app:layout_constraintVertical_bias="0.15" />
 
         <EditText
             android:id="@+id/edit_current_weight_field"
-            android:layout_width="247dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:textColor="#ffffffff"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.853"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.39" />
+            app:layout_constraintVertical_bias="0.138" />
 
 
         <TextView
@@ -49,150 +68,152 @@
             android:text="Target Weight:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#ffffffff"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.869"
+            app:layout_constraintHorizontal_bias="0.09"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.376" />
-
+            app:layout_constraintVertical_bias="0.231" />
 
         <EditText
             android:id="@+id/edit_target_weight_field"
-            android:layout_width="247dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:textColor="#ffffffff"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.853"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.39" />
+            app:layout_constraintVertical_bias="0.227" />
 
 
         <TextView
             android:id="@+id/textHours"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hours of Activity"
+            android:text="Hours of Activity:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#ffffffff"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.869"
+            app:layout_constraintHorizontal_bias="0.062"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.376" />
-
+            app:layout_constraintVertical_bias="0.308" />
 
         <EditText
             android:id="@+id/edit_hours_field"
-            android:layout_width="247dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:textColor="#ffffffff"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.853"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.39" />
+            app:layout_constraintVertical_bias="0.306" />
+
 
         <TextView
             android:id="@+id/textprotein"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Protein:"
+            android:text="Protein Target:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#ffffffff"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.869"
+            app:layout_constraintHorizontal_bias="0.08"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.376" />
-
+            app:layout_constraintVertical_bias="0.386" />
 
         <EditText
             android:id="@+id/edit_protein_field"
-            android:layout_width="247dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:textColor="#ffffffff"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.853"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.39" />
+            app:layout_constraintVertical_bias="0.386" />
+
 
         <TextView
             android:id="@+id/textCarb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Carbs:"
+            android:text="Carb Target:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#ffffffff"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.869"
+            app:layout_constraintHorizontal_bias="0.117"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.376" />
-
+            app:layout_constraintVertical_bias="0.468" />
 
         <EditText
             android:id="@+id/edit_carb_field"
-            android:layout_width="247dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:textColor="#ffffffff"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.853"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.39" />
+            app:layout_constraintVertical_bias="0.47" />
+
 
         <TextView
             android:id="@+id/textfat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fat:"
+            android:text="Fat Target:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#ffffffff"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.869"
+            app:layout_constraintHorizontal_bias="0.154"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.376" />
-
+            app:layout_constraintVertical_bias="0.545" />
 
         <EditText
             android:id="@+id/edit_fat_field"
-            android:layout_width="247dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:textColor="#ffffffff"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.853"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.39" />
-
+            app:layout_constraintVertical_bias="0.549" />
 
 
         <TextView
@@ -202,30 +223,29 @@
             android:text="Age:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#ffffffff"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.869"
+            app:layout_constraintHorizontal_bias="0.227"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.376" />
-
+            app:layout_constraintVertical_bias="0.626" />
 
         <EditText
             android:id="@+id/edit_age_field"
-            android:layout_width="247dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:textColor="#ffffffff"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.853"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.39" />
+            app:layout_constraintVertical_bias="0.632" />
 
-        
         <Button
             android:id="@+id/editUser"
             android:layout_width="159dp"
@@ -240,7 +260,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.776" />
+            app:layout_constraintVertical_bias="0.89" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
