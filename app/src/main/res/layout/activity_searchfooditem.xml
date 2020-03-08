@@ -35,7 +35,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.727" />
+        app:layout_constraintVertical_bias="0.684" />
 
     <Button
         android:id="@+id/button_creatnefooditem"
@@ -50,7 +50,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.818" />
+        app:layout_constraintVertical_bias="0.784" />
+
+    <Button
+        android:id="@+id/button_edit_food_item"
+        android:layout_width="181dp"
+        android:layout_height="wrap_content"
+        android:background="#EAA3AB"
+        android:onClick="editFoodItemActivity"
+        android:text="EDIT FOOD ITEM"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.884" />
 
     <EditText
         android:id="@+id/editText_search"

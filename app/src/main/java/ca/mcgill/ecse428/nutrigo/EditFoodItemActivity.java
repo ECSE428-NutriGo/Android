@@ -24,13 +24,10 @@ public class EditFoodItemActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Thread.dumpStack();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_food_item);
-        try {
-            wait(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
 
         //getIntent().getExtra("SelectedID");
         food_item_id = 1;
@@ -44,7 +41,7 @@ public class EditFoodItemActivity extends AppCompatActivity {
 
         //
         RequestParams rp = new RequestParams();
-        rp.put("id", food_item_id);
+        rp.put("fooditem", Long.toString(food_item_id));
 
 
         final EditText name_field = findViewById(R.id.name_field);//not sure if this is gonnaa access edit food item or add food item make sure it works!
@@ -58,7 +55,12 @@ public class EditFoodItemActivity extends AppCompatActivity {
         asyncHttpClient.put("https://nutrigo-staging.herokuapp.com/nutri/fooditem/", rp, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                JSONObject food_item = (JSONObject) response;
+                JSONObject food_item = null;
+                try {
+                    food_item = (JSONObject) response.get("fooditem");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 try {
                     name_field.setText(food_item.get("name").toString());
                     protein_field.setText(food_item.get("protein").toString());
@@ -66,7 +68,7 @@ public class EditFoodItemActivity extends AppCompatActivity {
                     fat_field.setText(food_item.get("fat").toString());
 
                 }   catch(JSONException e) {
-
+                    Toast.makeText(EditFoodItemActivity.this, "unexpected json"+food_item.toString(), Toast.LENGTH_LONG).show();
                 }
 
 
@@ -92,7 +94,7 @@ public class EditFoodItemActivity extends AppCompatActivity {
         final EditText fat_field = findViewById(R.id.fat_field);
 
         RequestParams rp = new RequestParams();
-        rp.put("id",food_item_id);
+        rp.put("fooditem",Long.toString(food_item_id));
         rp.put("name", name_field.getText());
         rp.put("protein", protein_field.getText());
         rp.put("fat", fat_field.getText());
@@ -103,13 +105,14 @@ public class EditFoodItemActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 
-                Intent ide = new Intent(EditFoodItemActivity.this, SearchFoodItemActivity.class);
-                startActivity(ide);
-                //this.finish();
+                //Intent ide = new Intent(EditFoodItemActivity.this, SearchFoodItemActivity.class);
+                //startActivity(ide);
+                finish();
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Thread.dumpStack();
                 Toast.makeText(EditFoodItemActivity.this, errorResponse.toString(), Toast.LENGTH_LONG).show();
                 try {
                     wait(10);

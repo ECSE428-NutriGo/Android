@@ -2,6 +2,7 @@ package ca.mcgill.ecse428.nutrigo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -26,14 +27,20 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("oncreate","onCreate of change password acticity");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
+        Log.d("oncreate1","onCreate of change password acticity part 2 end");
+
+
+
     }
 
     public void changePassword(View view) {
+        Log.d("entering","success");
         final EditText old_password_field = findViewById(R.id.original_password_field);
         final EditText new_password1 = findViewById(R.id.new_password);
-        final EditText new_password2 = findViewById(R.id.password_confirm_signup_field);
+        final EditText new_password2 = findViewById(R.id.confirm_new_password);
 
 
         RequestParams rp = new RequestParams();
@@ -41,13 +48,27 @@ public class ChangePasswordActivity extends AppCompatActivity {
         rp.put("new_password1", new_password1.getText());
         rp.put("new_password2", new_password2.getText());
         rp.put("LOGOUT_ON_PASSWORD_CHANGE","False");
+
+        Log.d("rightbeforehttprequest","rightbefore request");
+
         asyncHttpClient.addHeader("Authorization", "Token "+ LoginActivity.getUserToken());
-        asyncHttpClient.post("https://nutrigo-staging.herokuapp.com/rest-auth/change/", rp, new JsonHttpResponseHandler() {
+        asyncHttpClient.post("https://nutrigo-staging.herokuapp.com/rest-auth/password/change/", rp, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                finish();
+
+
+                String m;
+                m="";
+                try {
+                    m = response.get("detail").toString();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
                 /*
+
+
+
                 try {
                     userToken = response.get("key").toString();
                 } catch(JSONException e) {
@@ -60,6 +81,13 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 startActivity(ide);
 
                  */
+                Log.d("response",m);
+                Toast.makeText(ChangePasswordActivity.this, m, Toast.LENGTH_LONG).show();
+                finish();
+
+
+
+
             }
 
             @Override
