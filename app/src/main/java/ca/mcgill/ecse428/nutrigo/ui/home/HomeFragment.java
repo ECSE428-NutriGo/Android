@@ -51,7 +51,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         Button b = (Button) root.findViewById(R.id.logout_button);
+        Button b2 = (Button) root.findViewById(R.id.mealentries_button);
         b.setOnClickListener(this);
+        b2.setOnClickListener(this);
 
         final TextView fat_text = root.findViewById(R.id.carb_text);
         final TextView carbs_text = root.findViewById(R.id.protein_text);
