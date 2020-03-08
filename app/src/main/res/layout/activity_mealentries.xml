@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F38193"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:scrollbars="vertical">
 
     <Button
         android:id="@+id/deleteMealEntry_button"
@@ -45,10 +46,10 @@
 
     <EditText
         android:id="@+id/search_mealEntries"
-        android:hint="Filter search"
         android:layout_width="257dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Filter search"
         android:inputType="text"
         android:textColor="#ffffffff"
         android:textSize="25sp"

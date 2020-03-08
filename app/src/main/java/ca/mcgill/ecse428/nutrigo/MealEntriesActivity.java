@@ -135,11 +135,12 @@ public class MealEntriesActivity extends AppCompatActivity {
         final ListView lv = (ListView) findViewById(R.id.mealEntries_list);
 
         try {
-            final String item = lv.getSelectedItem().toString();
+            final String item = itemId.toString();
+            //final String item = lv.getSelectedItem().toString();
             asyncHttpClient.addHeader("Authorization", "Token "+ LoginActivity.getUserToken());
             RequestParams rp = new RequestParams();
             rp.put("mealentry", item);
-            asyncHttpClient.patch("https://nutrigo-staging.herokuapp.com/nutri/mealentry/",rp, new JsonHttpResponseHandler() {
+            asyncHttpClient.delete("https://nutrigo-staging.herokuapp.com/nutri/mealentry/",rp, new JsonHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                     String error = response.toString();
@@ -176,13 +177,25 @@ public class MealEntriesActivity extends AppCompatActivity {
             });
         }
         catch(Exception e){
-
+            String error = e.getMessage();
+            String[] messages = error.split("],\"");
+            String message = "";
+            for(int i = 0; i < messages.length; i++) {
+                int a = messages[i].indexOf("[");
+                if(i == messages.length - 1) {
+                    message += messages[i].substring(a+2, messages[i].length()-3);
+                }
+                else{
+                    message += messages[i].substring(a+2, messages[i].length()-1)+"\n";
+                }
+            }
+            Toast.makeText(MealEntriesActivity.this, message, Toast.LENGTH_LONG).show();
         }
 
     }
 
 
-    private void populateList(String search) {
+    private void populateList(final String search) {
         final ListView lv = (ListView) findViewById(R.id.mealEntries_list);
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_2, android.R.id.text1, meals) {
@@ -192,23 +205,24 @@ public class MealEntriesActivity extends AppCompatActivity {
                 TextView text1 = (TextView) view.findViewById(android.R.id.text1);
                 TextView text2 = (TextView) view.findViewById(android.R.id.text2);
 
-                text1.setText(meals.get(position));
+                ArrayList<String> searchedElements = new ArrayList();
+                if(search.equals("")) {
+                    searchedElements = meals;
+                }
+                else{
+                    for(String li : meals) {
+                        if(li.matches("^"+search+".*")) {
+                            searchedElements.add(li);
+                        }
+                    }
+                }
+
+                text1.setText(searchedElements.get(position));
                 text2.setText(timestamps.get(position));
                 return view;
             }
         };
-        if(search.equals("")) {
-            lv.setAdapter(adapter);
-        }
-        else{
-            ArrayList<String> searchedElements = new ArrayList();
-            for(String li : meals) {
-                if(li.matches("^"+search+".*")) {
-                    searchedElements.add(li);
-                }
-            }
-            lv.setAdapter(adapter);
-        }
+        lv.setAdapter(adapter);
     }
 }
 
