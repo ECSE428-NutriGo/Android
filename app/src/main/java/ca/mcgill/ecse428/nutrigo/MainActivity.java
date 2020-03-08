@@ -35,10 +35,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void logOutButton(View view){
-        LoginActivity.setUserToken("");
-        Intent ide = new Intent(this, LoginActivity.class);
-        startActivity(ide);
 
-    }
 }
