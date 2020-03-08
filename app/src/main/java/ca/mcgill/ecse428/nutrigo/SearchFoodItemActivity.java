@@ -83,6 +83,8 @@ public class SearchFoodItemActivity extends AppCompatActivity {
             }
         });
 
+        /*
+
         list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             public boolean onItemLongClick(AdapterView<?> adapter, View v,
                                            int position, long id) {
@@ -91,15 +93,17 @@ public class SearchFoodItemActivity extends AppCompatActivity {
 
                 String name = item.getItem();
                 int food_item_id= ids.get(name);
-                startEditFoodItemActivity(food_item_id);
-
-                //Intent i = new Intent(SearchFoodItemActivity, EditFoodItemActivity.class);
+                //startEditFoodItemActivity(food_item_id);
+               // Intent(SearchFoodItemActivity,EditFoodItemActivity)
+                //Intent i = new Intent( SearchFoodItemActivity, EditFoodItemActivity.class);
 
 
                // startActivity(i);
                 return true;
             }
         });
+
+         */
 
 
 
@@ -123,14 +127,21 @@ public class SearchFoodItemActivity extends AppCompatActivity {
         });
     }
     public void startEditFoodItemActivity(int itemId){
+        //Thread.dumpStack();
         intent= new Intent(this, EditFoodItemActivity.class);
         Bundle bundle = new Bundle();
         bundle.putInt("SelectedID",itemId);
-        //intent.putExtra("SelectedID",itemId);
+       // //intent.putExtra("SelectedID",itemId);
         intent.putExtras(bundle);
+       // Thread.dumpStack();
         startActivity(intent);
 
 
+    }
+
+    public void editFoodItemActivity(View view){
+        //Thread.dumpStack();
+        startEditFoodItemActivity(itemId);
     }
 
     public void addFoodItem(View view){
@@ -139,6 +150,8 @@ public class SearchFoodItemActivity extends AppCompatActivity {
         AddMealActivity.currentFoodItemsNames.add(itemName);
         startActivity(intent);
     }
+
+
 
     public void createNewFoodItem(View view){
         intent = new Intent(SearchFoodItemActivity.this, AddFoodItemActivity.class);

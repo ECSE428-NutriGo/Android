@@ -23,6 +23,7 @@ import ca.mcgill.ecse428.nutrigo.AddMealEntryActivity;
 import ca.mcgill.ecse428.nutrigo.LoginActivity;
 import ca.mcgill.ecse428.nutrigo.R;
 import cz.msebera.android.httpclient.Header;
+import ca.mcgill.ecse428.nutrigo.ChangePasswordActivity;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
@@ -32,7 +33,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         LoginActivity.setUserToken("");
         Intent ide = new Intent(getActivity(), LoginActivity.class);
+        //Intent ide = new Intent(getActivity(), ChangePasswordActivity.class);
         startActivity(ide);
+
+    }
+
+    public void logOutButton(){
+        LoginActivity.setUserToken("");
+        Intent ide = new Intent(getActivity(), LoginActivity.class);
+        startActivity(ide);
+
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -64,9 +74,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         return root;
     }
 
-    public void changePassword(){
-        Intent i= new Intent(this,ChangePasswordActivity);
-        startActivity(i);
+    public void changePassword(View view){
+        Intent i= new Intent(this.getActivity(), ChangePasswordActivity.class);
+        this.startActivity(i);
 
     }
 }

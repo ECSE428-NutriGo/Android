@@ -10,6 +10,7 @@
         android:layout_height="match_parent"
         android:background="#F38193">
 
+
         <EditText
             android:id="@+id/protein_field"
             android:layout_width="215dp"
@@ -22,9 +23,28 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.714"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.313" />
+
+        <TextView
+            android:id="@+id/protein_label"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="Protein (g):"
+            android:inputType="numberSigned"
+            android:textColor="#ffffffff"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.313" />
+
 
         <EditText
             android:id="@+id/fat_field"
@@ -38,9 +58,29 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.714"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.556" />
+
+        <TextView
+            android:id="@+id/fat_label"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="Fat (g):"
+            android:inputType="numberSigned"
+            android:textColor="#ffffffff"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.556" />
+
+
 
         <EditText
             android:id="@+id/name_field"
@@ -53,9 +93,30 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.714"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.192" />
+            app:layout_constraintVertical_bias="0.197" />
+
+        <TextView
+            android:id="@+id/name_label"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="Name:"
+            android:textColor="#ffffffff"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.197"
+
+            />
+
+
 
         <EditText
             android:id="@+id/carbs_field"
@@ -69,9 +130,27 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.714"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.434" />
+
+        <TextView
+            android:id="@+id/carbs_label"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="Carbs (g):"
+            android:textColor="#ffffffff"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.434" />
+
 
         <Button
             android:id="@+id/editfooditem"
@@ -110,7 +189,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Edit Food Item"
-            android:textSize="18sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
