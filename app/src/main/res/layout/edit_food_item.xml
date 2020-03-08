@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F38193">
+
+
+        <EditText
+            android:id="@+id/protein_field"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Protein (g)"
+            android:inputType="numberSigned"
+            android:textColor="#ffffffff"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.714"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.313" />
+
+        <TextView
+            android:id="@+id/protein_label"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="Protein (g):"
+            android:inputType="numberSigned"
+            android:textColor="#ffffffff"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.313" />
+
+
+        <EditText
+            android:id="@+id/fat_field"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Fat (g)"
+            android:inputType="numberSigned"
+            android:textColor="#ffffffff"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.714"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.556" />
+
+        <TextView
+            android:id="@+id/fat_label"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="Fat (g):"
+            android:inputType="numberSigned"
+            android:textColor="#ffffffff"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.556" />
+
+
+
+        <EditText
+            android:id="@+id/name_field"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Name"
+            android:textColor="#ffffffff"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.714"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.197" />
+
+        <TextView
+            android:id="@+id/name_label"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="Name:"
+            android:textColor="#ffffffff"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.197"
+
+            />
+
+
+
+        <EditText
+            android:id="@+id/carbs_field"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Carbs (g)"
+            android:inputType="numberSigned"
+            android:textColor="#ffffffff"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.714"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.434" />
+
+        <TextView
+            android:id="@+id/carbs_label"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="Carbs (g):"
+            android:textColor="#ffffffff"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.434" />
+
+
+        <Button
+            android:id="@+id/editfooditem"
+            android:layout_width="184dp"
+            android:layout_height="wrap_content"
+            android:background="#B25867"
+            android:onClick="editFooditem"
+            android:text="Edit Food item"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.715" />
+
+        <Button
+            android:id="@+id/canceleditfooditem"
+            android:layout_width="184dp"
+            android:layout_height="wrap_content"
+            android:background="#B25867"
+            android:onClick="cancelEditFoodItem"
+            android:text="Cancel"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.815" />
+
+        <TextView
+            android:id="@+id/textView_name_of_food_item_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Food Item"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.12" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
