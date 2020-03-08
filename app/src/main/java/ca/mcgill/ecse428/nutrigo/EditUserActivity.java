@@ -26,6 +26,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class EditUserActivity extends AppCompatActivity {
     private final AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
+    private String username="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class EditUserActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                try {
+                   username = response.get("username").toString();
                    edit_protein_field.setText(response.get("protein_target").toString());
                    edit_carb_field.setText(response.get("carb_target").toString());
                    edit_fat_field.setText(response.get("fat_target").toString());
@@ -76,6 +78,7 @@ public class EditUserActivity extends AppCompatActivity {
 
         //Create Request
         RequestParams rp = new RequestParams();
+        rp.put("username",username);
         rp.put("protein_target",edit_protein_field.getText());
         rp.put("carb_target",edit_carb_field.getText());
         rp.put("fat_target",edit_fat_field.getText());
