@@ -31,15 +31,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        /*
+
         LoginActivity.setUserToken("");
         Intent ide = new Intent(getActivity(), LoginActivity.class);
         //Intent ide = new Intent(getActivity(), ChangePasswordActivity.class);
         startActivity(ide);
 
-         */
+
 
     }
+    /*
     //maybe delete
     public void logOutButton(View view){
         LoginActivity.setUserToken("");
@@ -47,6 +48,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         startActivity(ide);
 
     }
+    *
+     */
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -77,9 +80,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         return root;
     }
     //maybe delete
+    /*
     public void changePassword(View view){
         Intent i= new Intent(this.getActivity(), ChangePasswordActivity.class);
         this.startActivity(i);
 
     }
+
+     */
 }
