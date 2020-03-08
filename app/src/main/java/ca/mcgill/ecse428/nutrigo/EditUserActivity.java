@@ -16,6 +16,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
@@ -30,6 +31,29 @@ public class EditUserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_user);
+        final EditText edit_age_field = findViewById(R.id.edit_age_field);
+        final EditText edit_current_weight_field = findViewById(R.id.edit_current_weight_field);
+        final EditText edit_target_weight_field = findViewById(R.id.edit_target_weight_field);
+        RequestParams rp = new RequestParams();
+        asyncHttpClient.addHeader("Authorization", "Token "+LoginActivity.getUserToken());
+        asyncHttpClient.get("https://nutrigo-staging.herokuapp.com/rest-auth/user/", rp, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+               try {
+                   edit_age_field.setText(response.get("age").toString());
+                   edit_current_weight_field.setText(response.get("").toString());
+                   edit_age_field.setText(response.get("age").toString());
+               } catch (JSONException e) {
+                   e.printStackTrace();
+               }
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Toast.makeText(EditUserActivity.this, errorResponse.toString(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
 
@@ -53,7 +77,7 @@ public class EditUserActivity extends AppCompatActivity {
         asyncHttpClient.put("https://nutrigo-staging.herokuapp.com/rest-auth/user/", rp, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Intent ide = new Intent(EditUserActivity.this, SearchFoodItemActivity.class);
+                Intent ide = new Intent(EditUserActivity.this, MainActivity.class);
                 startActivity(ide);
             }
 
