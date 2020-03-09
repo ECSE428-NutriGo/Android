@@ -29,7 +29,7 @@ public class ViewUsersActivity extends AppCompatActivity {
     private final AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
 
     private HashMap<String, Integer> ids;
-    private Integer itemId;
+    private String email;
     private String userName;
     Intent intent;
 
@@ -41,7 +41,7 @@ public class ViewUsersActivity extends AppCompatActivity {
         listElements = new ArrayList<>();
 
         asyncHttpClient.addHeader("Authorization", "Token "+ LoginActivity.getUserToken());
-        asyncHttpClient.get("https://nutrigo-staging.herokuapp.com/nutri/fooditem/", new RequestParams(), new JsonHttpResponseHandler() {
+        asyncHttpClient.get("https://nutrigo-staging.herokuapp.com/profile/users", new RequestParams(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
@@ -70,6 +70,7 @@ public class ViewUsersActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
                 ListUser item = (ListUser) adapter.getItemAtPosition(position);
                 userName = item.getItem();
+                email = item.getEmail();
             }
         });
 
@@ -109,9 +110,13 @@ public class ViewUsersActivity extends AppCompatActivity {
         }
     }
 
+
+
     public void lockOutUser(View view){
+        RequestParams params = new RequestParams();
+        params.put("email", email);
         asyncHttpClient.addHeader("Authorization", "Token "+ LoginActivity.getUserToken());
-        asyncHttpClient.get("https://nutrigo-staging.herokuapp.com/nutri/fooditem/", new RequestParams(), new JsonHttpResponseHandler() {
+        asyncHttpClient.post("https://nutrigo-staging.herokuapp.com/profile/lockout/", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 populateList("");
