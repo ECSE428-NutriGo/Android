@@ -84,5 +84,23 @@
             android:label="Nutrigo">
 
         </activity>
+
+        <activity
+            android:name=".SysAdminHome"
+            android:label="Nutrigo">
+
+        </activity>
+
+        <activity
+            android:name=".UserDetailsActivity"
+            android:label="Nutrigo">
+
+        </activity>
+
+        <activity
+            android:name=".ViewUsersActivity"
+            android:label="Nutrigo">
+
+        </activity>
     </application>
 </manifest>

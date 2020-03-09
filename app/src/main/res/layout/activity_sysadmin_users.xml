@@ -23,6 +23,7 @@
         android:layout_width="229dp"
         android:layout_height="56dp"
         android:layout_marginTop="100dp"
+        android:layout_marginBottom="31dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="SEARCH"

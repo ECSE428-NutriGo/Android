@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -40,8 +41,11 @@ public class ViewUsersActivity extends AppCompatActivity {
 
         listElements = new ArrayList<>();
 
+        RequestParams rp = new RequestParams();
+        rp.add("keyword", "@");
+
         asyncHttpClient.addHeader("Authorization", "Token "+ LoginActivity.getUserToken());
-        asyncHttpClient.get("https://nutrigo-staging.herokuapp.com/profile/users", new RequestParams(), new JsonHttpResponseHandler() {
+        asyncHttpClient.get("https://nutrigo-staging.herokuapp.com/profile/users", rp, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
@@ -59,8 +63,10 @@ public class ViewUsersActivity extends AppCompatActivity {
                 populateList("");
             }
             @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {}
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
 
+                Log.e("error: ",errorResponse.toString());
+            }
         });
 
         ListView list = findViewById(R.id.userList);
@@ -74,7 +80,7 @@ public class ViewUsersActivity extends AppCompatActivity {
             }
         });
 
-        final EditText search = (EditText) findViewById(R.id.editText_search);
+        final EditText search = (EditText) findViewById(R.id.editText);
         search.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
