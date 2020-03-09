@@ -69,6 +69,7 @@
         android:layout_width="139dp"
         android:layout_height="wrap_content"
         android:background="#2D727C"
+        android:onClick="logout"
         android:text="Log out"
         android:textColor="#ffffff"
         android:textSize="24sp"
@@ -77,36 +78,44 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.705" />
+        app:layout_constraintVertical_bias="0.724" />
 
     <Button
 
         android:id="@+id/edit_user"
         android:layout_width="139dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="110dp"
         android:background="#2D727C"
-        android:onClick="edit"
+        android:onClick="editUser"
         android:text="Update your Info"
         android:textColor="#ffffff"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.863"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logout_button" />
+
+    <Button
 
         android:id="@+id/change_password_button"
         android:layout_width="139dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="110dp"
         android:background="#2D727C"
+        android:onClick="changePassword"
         android:text="Change Password"
         android:textColor="#ffffff"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:onClick="changePassword"
-
-  
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.805" />
-
+        app:layout_constraintTop_toBottomOf="@+id/logout_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,25 +1,19 @@
 package ca.mcgill.ecse428.nutrigo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
-
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import cz.msebera.android.httpclient.Header;
+import androidx.appcompat.app.AppCompatActivity;
 import cz.msebera.android.httpclient.Header;
 
 
@@ -32,6 +26,7 @@ public class EditUserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_user);
+
         final EditText edit_protein_field = findViewById(R.id.edit_protein_field);
         final EditText edit_carb_field = findViewById(R.id.edit_carb_field);
         final EditText edit_fat_field = findViewById(R.id.edit_fat_field);
@@ -66,8 +61,7 @@ public class EditUserActivity extends AppCompatActivity {
 
     }
 
-
-    public void edit(View view){
+    public void update(View view){
         final EditText edit_protein_field = findViewById(R.id.edit_protein_field);
         final EditText edit_carb_field = findViewById(R.id.edit_carb_field);
         final EditText edit_fat_field = findViewById(R.id.edit_fat_field);

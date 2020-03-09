@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -18,33 +17,37 @@ import org.json.JSONObject;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
-import ca.mcgill.ecse428.nutrigo.AddMealEntryActivity;
+import ca.mcgill.ecse428.nutrigo.ChangePasswordActivity;
 import ca.mcgill.ecse428.nutrigo.EditUserActivity;
 import ca.mcgill.ecse428.nutrigo.LoginActivity;
-import ca.mcgill.ecse428.nutrigo.MainActivity;
 import ca.mcgill.ecse428.nutrigo.R;
 import cz.msebera.android.httpclient.Header;
 
-public class HomeFragment extends Fragment implements View.OnClickListener {
+public class HomeFragment extends Fragment implements View.OnClickListener{
 
     private final AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
-            case R.id.edit_user: {
-                Intent ide = new Intent(getActivity(), EditUserActivity.class);
-                startActivity(ide);
-                break;
-            }
-            case R.id.logout_button: {
+            case R.id.login_button: {
                 LoginActivity.setUserToken("");
                 Intent ide = new Intent(getActivity(), LoginActivity.class);
                 startActivity(ide);
-                break;
             }
+            break;
+            case R.id.edit_user: {
+                Intent i= new Intent(getActivity(), EditUserActivity.class);
+                this.startActivity(i);
+            }
+            break;
+            case R.id.change_password_button: {
+                Intent i= new Intent(getActivity(), ChangePasswordActivity.class);
+                this.startActivity(i);
+                break;
+
+            }
+
         }
     }
 
@@ -52,8 +55,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        Button b = (Button) root.findViewById(R.id.logout_button);
-        b.setOnClickListener(this);
+        Button b1 = (Button) root.findViewById(R.id.logout_button);
+        b1.setOnClickListener(this);
+
+        Button b2 = (Button) root.findViewById(R.id.change_password_button);
+        b2.setOnClickListener(this);
+
+        Button b3 = (Button) root.findViewById(R.id.edit_user);
+        b3.setOnClickListener(this);
 
         final TextView fat_text = root.findViewById(R.id.carb_text);
         final TextView carbs_text = root.findViewById(R.id.protein_text);
@@ -76,13 +85,4 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         });
         return root;
     }
-    //maybe delete
-    /*
-    public void changePassword(View view){
-        Intent i= new Intent(this.getActivity(), ChangePasswordActivity.class);
-        this.startActivity(i);
-
-    }
-
-     */
 }

@@ -53,17 +53,17 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
             }
             break;
             case R.id.createMealEntry_button: {
-                if(selectedMealId != -1) {
+                if (selectedMealId != -1) {
                     Intent ide = new Intent(getActivity(), AddMealEntryActivity.class);
                     startActivity(ide);
-                }
-                else{
+                } else {
                     Toast.makeText(getActivity(), "Error: no meal provided", Toast.LENGTH_LONG).show();
-               
-            }
-            break;
-        }
 
+                }
+                break;
+            }
+
+        }
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
