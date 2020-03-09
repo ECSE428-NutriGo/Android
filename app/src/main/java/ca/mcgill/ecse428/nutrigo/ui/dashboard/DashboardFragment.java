@@ -29,9 +29,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import ca.mcgill.ecse428.nutrigo.AddMealActivity;
 import ca.mcgill.ecse428.nutrigo.AddMealEntryActivity;
+import ca.mcgill.ecse428.nutrigo.DeleteFoodItemActivity;
 import ca.mcgill.ecse428.nutrigo.LoginActivity;
 import ca.mcgill.ecse428.nutrigo.R;
-import ca.mcgill.ecse428.nutrigo.SignupActivity;
 import cz.msebera.android.httpclient.Header;
 
 public class DashboardFragment extends Fragment implements View.OnClickListener {
@@ -53,17 +53,17 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
             }
             break;
             case R.id.createMealEntry_button: {
-                if(selectedMealId != -1) {
+                if (selectedMealId != -1) {
                     Intent ide = new Intent(getActivity(), AddMealEntryActivity.class);
                     startActivity(ide);
-                }
-                else{
+                } else {
                     Toast.makeText(getActivity(), "Error: no meal provided", Toast.LENGTH_LONG).show();
-                }
-            }
-            break;
-        }
 
+                }
+                break;
+            }
+
+        }
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -76,13 +76,26 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         Button b2 = (Button) root.findViewById(R.id.createMealEntry_button);
         b2.setOnClickListener(this);
 
-        final ListView lv = root.findViewById(R.id.mealList);
+
+        final ListView lv = root.findViewById(R.id.fooditemList);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
                 MealItem item = (MealItem) adapter.getItemAtPosition(position);
                 selectedMealName = item.getName();
                 selectedMealId = mealIds.get(selectedMealName);
+            }
+        });
+
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            public boolean onItemLongClick(AdapterView<?> adapter, View v,
+                                           int position, long id) {
+                MealItem item = (MealItem) adapter.getItemAtPosition(position);
+                selectedMealName = item.getName();
+                selectedMealId = mealIds.get(selectedMealName);
+                Intent ide = new Intent(getActivity(), DeleteFoodItemActivity.class);
+                startActivity(ide);
+                return true;
             }
         });
 
@@ -119,6 +132,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                 }
                 populateList("");
             }
+
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 String error = errorResponse.toString();
@@ -159,7 +173,8 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     }
 
     private void populateList(String search) {
-        final ListView lv = getView().findViewById(R.id.mealList);
+        
+      final ListView lv = getView().findViewById(R.id.fooditemList);
 
         if(search.equals("")) {
             lv.setAdapter(new MyCustomBaseAdapter(this.getContext(), listElements));

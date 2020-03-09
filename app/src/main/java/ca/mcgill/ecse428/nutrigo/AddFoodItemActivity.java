@@ -59,3 +59,4 @@ public class AddFoodItemActivity extends AppCompatActivity {
         });
     }
 }
+
