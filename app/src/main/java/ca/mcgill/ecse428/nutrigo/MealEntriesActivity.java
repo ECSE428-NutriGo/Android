@@ -1,25 +1,17 @@
 package ca.mcgill.ecse428.nutrigo;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -32,7 +24,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import ca.mcgill.ecse428.nutrigo.ui.dashboard.MyCustomBaseAdapter;
+import androidx.appcompat.app.AppCompatActivity;
 import cz.msebera.android.httpclient.Header;
 
 public class MealEntriesActivity extends AppCompatActivity {
@@ -66,11 +58,11 @@ public class MealEntriesActivity extends AppCompatActivity {
                     for(int i = 0; i < ((JSONArray)mealEntries).length(); i++) {
 
                         JSONObject mealEntry = (JSONObject)((JSONArray)mealEntries).get(i);
-                        meal = mealEntry.get("meal").toString();
+                        meal = mealEntry.get("id").toString();
                         timestamp = mealEntry.get("timestamp").toString();
                         id = (int)mealEntry.get("id");
 
-                        ids.put(meal,id);
+                        ids.put(meal, id);
 
                         meals.add(meal);
                         timestamps.add(timestamp);
@@ -139,7 +131,9 @@ public class MealEntriesActivity extends AppCompatActivity {
             //final String item = lv.getSelectedItem().toString();
             asyncHttpClient.addHeader("Authorization", "Token "+ LoginActivity.getUserToken());
             RequestParams rp = new RequestParams();
-            rp.put("mealentry", item);
+            rp.put("mealentry", meal);
+            Log.d("rp: ", rp.toString());
+            Log.d("rp: ", meal);
             asyncHttpClient.delete("https://nutrigo-staging.herokuapp.com/nutri/mealentry/",rp, new JsonHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {

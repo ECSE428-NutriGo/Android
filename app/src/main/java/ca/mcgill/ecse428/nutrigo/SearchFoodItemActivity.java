@@ -28,7 +28,7 @@ public class SearchFoodItemActivity extends AppCompatActivity {
     private final AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
 
     private HashMap<String, Integer> ids;
-    private Integer itemId;
+    static public Integer itemId;
     private String itemName;
     Intent intent;
 
@@ -82,29 +82,6 @@ public class SearchFoodItemActivity extends AppCompatActivity {
                 itemId = ids.get(itemName);
             }
         });
-
-        /*
-
-        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            public boolean onItemLongClick(AdapterView<?> adapter, View v,
-                                           int position, long id) {
-                ListFoodItem item = (ListFoodItem) adapter.getItemAtPosition(position);
-
-
-                String name = item.getItem();
-                int food_item_id= ids.get(name);
-                //startEditFoodItemActivity(food_item_id);
-               // Intent(SearchFoodItemActivity,EditFoodItemActivity)
-                //Intent i = new Intent( SearchFoodItemActivity, EditFoodItemActivity.class);
-
-
-               // startActivity(i);
-                return true;
-            }
-        });
-
-         */
-
 
         final EditText search = (EditText) findViewById(R.id.editText_search);
         search.addTextChangedListener(new TextWatcher() {
