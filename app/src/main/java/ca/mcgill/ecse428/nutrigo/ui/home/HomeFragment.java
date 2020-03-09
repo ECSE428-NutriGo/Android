@@ -48,7 +48,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
@@ -77,4 +76,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         });
         return root;
     }
+    //maybe delete
+    /*
+    public void changePassword(View view){
+        Intent i= new Intent(this.getActivity(), ChangePasswordActivity.class);
+        this.startActivity(i);
+
+    }
+
+     */
 }

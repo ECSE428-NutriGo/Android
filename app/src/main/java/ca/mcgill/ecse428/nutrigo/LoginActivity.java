@@ -44,7 +44,6 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(ide);
     }
 
-
     public void navSignup(View view) {
         Intent ide = new Intent(LoginActivity.this, SignupActivity.class);
         startActivity(ide);
@@ -89,5 +88,4 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
 }
