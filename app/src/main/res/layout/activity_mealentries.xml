@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F38193"
+    android:orientation="vertical"
+    android:scrollbars="vertical">
+
+    <Button
+        android:id="@+id/deleteMealEntry_button"
+        android:layout_width="146dp"
+        android:layout_height="56dp"
+        android:background="#A85F6A"
+        android:onClick="deleteMealEntry"
+        android:text="DELETE MEAL ENTRY"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.835" />
+
+    <ListView
+        android:id="@+id/mealEntries_list"
+        android:layout_width="337dp"
+        android:layout_height="392dp"
+        android:background="#A85F6A"
+        android:choiceMode="singleChoice"
+        android:divider="#F38193"
+        android:dividerHeight="12.0sp"
+        android:listSelector="#EAA3AB"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.368" />
+
+    <EditText
+        android:id="@+id/search_mealEntries"
+        android:layout_width="257dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Filter search"
+        android:inputType="text"
+        android:textColor="#ffffffff"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.072" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

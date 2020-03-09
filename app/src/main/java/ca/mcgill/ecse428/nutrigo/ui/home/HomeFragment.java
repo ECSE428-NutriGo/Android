@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import ca.mcgill.ecse428.nutrigo.ChangePasswordActivity;
 import ca.mcgill.ecse428.nutrigo.EditUserActivity;
 import ca.mcgill.ecse428.nutrigo.LoginActivity;
+import ca.mcgill.ecse428.nutrigo.MealEntriesActivity;
 import ca.mcgill.ecse428.nutrigo.R;
 import cz.msebera.android.httpclient.Header;
 
@@ -30,9 +31,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.login_button: {
+            case R.id.logout_button: {
                 LoginActivity.setUserToken("");
                 Intent ide = new Intent(getActivity(), LoginActivity.class);
+                startActivity(ide);
+            }
+            break;
+            case R.id.mealentries_button: {
+                Intent ide = new Intent(getActivity(), MealEntriesActivity.class);
                 startActivity(ide);
             }
             break;
@@ -47,13 +53,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 break;
 
             }
-
         }
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
+
+        Button b4 = (Button) root.findViewById(R.id.mealentries_button);
+        b4.setOnClickListener(this);
 
         Button b1 = (Button) root.findViewById(R.id.logout_button);
         b1.setOnClickListener(this);
