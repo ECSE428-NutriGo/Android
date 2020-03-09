@@ -80,6 +80,17 @@
         app:layout_constraintVertical_bias="0.705" />
 
     <Button
+
+        android:id="@+id/edit_user"
+        android:layout_width="139dp"
+        android:layout_height="wrap_content"
+        android:background="#2D727C"
+        android:onClick="edit"
+        android:text="Update your Info"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:textStyle="bold"
+
         android:id="@+id/change_password_button"
         android:layout_width="139dp"
         android:layout_height="wrap_content"
@@ -89,10 +100,13 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:onClick="changePassword"
+
+  
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.84" />
+        app:layout_constraintVertical_bias="0.805" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

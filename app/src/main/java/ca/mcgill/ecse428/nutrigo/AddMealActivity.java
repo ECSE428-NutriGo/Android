@@ -22,7 +22,9 @@ import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
 import cz.msebera.android.httpclient.Header;
+
 import cz.msebera.android.httpclient.entity.StringEntity;
+
 
 
 public class AddMealActivity extends AppCompatActivity {
@@ -110,7 +112,6 @@ public class AddMealActivity extends AppCompatActivity {
         if (currentFoodItems != null && !currentFoodItems.isEmpty())
             params = params1;
         else params = params2;
-
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("name", mealName);

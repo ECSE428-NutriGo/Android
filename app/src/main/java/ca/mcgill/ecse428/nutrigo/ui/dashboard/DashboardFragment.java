@@ -59,7 +59,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                 }
                 else{
                     Toast.makeText(getActivity(), "Error: no meal provided", Toast.LENGTH_LONG).show();
-                }
+               
             }
             break;
         }
@@ -75,6 +75,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
 
         Button b2 = (Button) root.findViewById(R.id.createMealEntry_button);
         b2.setOnClickListener(this);
+
 
         final ListView lv = root.findViewById(R.id.fooditemList);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -131,6 +132,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                 }
                 populateList("");
             }
+
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 String error = errorResponse.toString();
@@ -171,7 +173,8 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     }
 
     private void populateList(String search) {
-        final ListView lv = getView().findViewById(R.id.fooditemList);
+        
+      final ListView lv = getView().findViewById(R.id.fooditemList);
 
         if(search.equals("")) {
             lv.setAdapter(new MyCustomBaseAdapter(this.getContext(), listElements));

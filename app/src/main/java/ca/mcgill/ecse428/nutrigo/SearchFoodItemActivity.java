@@ -106,8 +106,6 @@ public class SearchFoodItemActivity extends AppCompatActivity {
          */
 
 
-
-
         final EditText search = (EditText) findViewById(R.id.editText_search);
         search.addTextChangedListener(new TextWatcher() {
             @Override
@@ -126,6 +124,7 @@ public class SearchFoodItemActivity extends AppCompatActivity {
             }
         });
     }
+
     public void startEditFoodItemActivity(int itemId){
         //Thread.dumpStack();
         intent= new Intent(this, EditFoodItemActivity.class);
@@ -150,8 +149,6 @@ public class SearchFoodItemActivity extends AppCompatActivity {
         AddMealActivity.currentFoodItemsNames.add(itemName);
         startActivity(intent);
     }
-
-
 
     public void createNewFoodItem(View view){
         intent = new Intent(SearchFoodItemActivity.this, AddFoodItemActivity.class);

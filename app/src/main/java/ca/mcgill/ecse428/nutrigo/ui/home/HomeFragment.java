@@ -20,10 +20,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import ca.mcgill.ecse428.nutrigo.AddMealEntryActivity;
+import ca.mcgill.ecse428.nutrigo.EditUserActivity;
 import ca.mcgill.ecse428.nutrigo.LoginActivity;
+import ca.mcgill.ecse428.nutrigo.MainActivity;
 import ca.mcgill.ecse428.nutrigo.R;
 import cz.msebera.android.httpclient.Header;
-import ca.mcgill.ecse428.nutrigo.ChangePasswordActivity;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
@@ -31,25 +32,21 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()) {
 
-        LoginActivity.setUserToken("");
-        Intent ide = new Intent(getActivity(), LoginActivity.class);
-        //Intent ide = new Intent(getActivity(), ChangePasswordActivity.class);
-        startActivity(ide);
-
-
-
+            case R.id.edit_user: {
+                Intent ide = new Intent(getActivity(), EditUserActivity.class);
+                startActivity(ide);
+                break;
+            }
+            case R.id.logout_button: {
+                LoginActivity.setUserToken("");
+                Intent ide = new Intent(getActivity(), LoginActivity.class);
+                startActivity(ide);
+                break;
+            }
+        }
     }
-    /*
-    //maybe delete
-    public void logOutButton(View view){
-        LoginActivity.setUserToken("");
-        Intent ide = new Intent(getActivity(), LoginActivity.class);
-        startActivity(ide);
-
-    }
-    *
-     */
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
